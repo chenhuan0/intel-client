@@ -116,7 +116,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>images/operation.JPG</pixmap>
+           <pixmap>images/operation.jpg</pixmap>
           </property>
          </widget>
         </item>
