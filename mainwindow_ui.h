@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Mar 7 15:21:41 2013
+** Created: Thu Mar 7 15:28:19 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -39,7 +39,7 @@ public:
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(150, 40, 391, 131));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/images/logo.JPG")));
+        label->setPixmap(QPixmap(QString::fromUtf8("images/logo.jpg")));
         mainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(mainWindow);

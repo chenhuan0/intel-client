@@ -39,7 +39,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resources.qrc">:/images/logo.JPG</pixmap>
+     <pixmap>images/logo.jpg</pixmap>
     </property>
    </widget>
   </widget>
