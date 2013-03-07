@@ -10,7 +10,6 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(codec);
     QFont font("wenquanyi", 6);
     a.setFont(font);
-    
     CMainWindow w;
     w.show();
     return a.exec();

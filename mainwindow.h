@@ -2,6 +2,7 @@
 #define _MAINWINDOW_H_
 #include "common.h"
 #include "ui_mainwindow.h"
+class PicButton;
 
 class CMainWindow : public QMainWindow
 {
@@ -11,6 +12,6 @@ public:
 
 private:
     Ui::mainWindow ui;
-
+    void setup();
 };
 #endif 
