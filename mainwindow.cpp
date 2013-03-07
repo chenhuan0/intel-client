@@ -29,7 +29,7 @@ void CMainWindow::play()
     args << "-vo";
     args << "fbdev";
     args << "-framedrop";
-    args << "/home/ch/intel/test.mkv";
+    args << "/home/ch/videos/test.mkv";
 
     process->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
 }
