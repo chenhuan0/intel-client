@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "controlbar.h"
 #include "class.h"
 
 CMainWindow::CMainWindow(QWidget* parent, Qt::WFlags flags)
@@ -17,11 +18,18 @@ void CMainWindow::setup()
     plt.setColor(QPalette::Background, QColor("black"));
     setPalette(plt);
 
-    connect(ui.playButton, SIGNAL(clicked()), this, SLOT(play()));
+    //connect(ui.playButton, SIGNAL(clicked()), this, SLOT(play()));
+    connect(ui.browseButton, SIGNAL(clicked()), this, SLOT(browse()));
 }
 
-void CMainWindow::play()
+void CMainWindow::browse()
 {
+    
+}
+void CMainWindow::play(QString& filename)
+{
+    controlBar = new CControlBar();
+    controlBar->show();
     QProcess* process = new QProcess(this);
     QStringList args;
     args << "-slave";
@@ -29,7 +37,7 @@ void CMainWindow::play()
     args << "-vo";
     args << "fbdev";
     args << "-framedrop";
-    args << "/home/ch/videos/test.mkv";
+    args << filename;
 
     process->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
 }

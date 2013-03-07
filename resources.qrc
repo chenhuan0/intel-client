@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/">
+    <file>images/control-play.png</file>
     <file>images/browse.png</file>
     <file>images/browselabel.jpg</file>
     <file>images/logo.jpg</file>
