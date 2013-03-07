@@ -16,7 +16,7 @@ private:
     void setup();
 
 private slots:
-    void play(QString& filename);
+    void play();
     void browse();
 };
 #endif 

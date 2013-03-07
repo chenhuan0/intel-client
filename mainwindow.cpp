@@ -18,7 +18,7 @@ void CMainWindow::setup()
     plt.setColor(QPalette::Background, QColor("black"));
     setPalette(plt);
 
-    //connect(ui.playButton, SIGNAL(clicked()), this, SLOT(play()));
+    connect(ui.playButton, SIGNAL(clicked()), this, SLOT(play()));
     connect(ui.browseButton, SIGNAL(clicked()), this, SLOT(browse()));
 }
 
@@ -26,7 +26,7 @@ void CMainWindow::browse()
 {
     
 }
-void CMainWindow::play(QString& filename)
+void CMainWindow::play()
 {
     controlBar = new CControlBar();
     controlBar->show();
@@ -37,7 +37,7 @@ void CMainWindow::play(QString& filename)
     args << "-vo";
     args << "fbdev";
     args << "-framedrop";
-    args << filename;
+    args << "/home/ch/videos/test.mp4";
 
     process->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
 }
