@@ -1,7 +1,7 @@
 #ifndef _MAINWINDOW_H_
 #define _MAINWINDOW_H_
 #include "common.h"
-#include "mainwindow_ui.h"
+#include "ui_mainwindow.h"
 
 class CMainWindow : public QMainWindow
 {

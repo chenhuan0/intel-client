@@ -29,10 +29,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>30</y>
-      <width>521</width>
-      <height>171</height>
+      <x>120</x>
+      <y>50</y>
+      <width>461</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="text">
@@ -42,10 +42,24 @@
      <pixmap>images/logo.jpg</pixmap>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>180</y>
+      <width>391</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/operation.JPG</pixmap>
+    </property>
+   </widget>
   </widget>
  </widget>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
