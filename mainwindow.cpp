@@ -22,7 +22,14 @@ void CMainWindow::setup()
 
 void CMainWindow::play()
 {
-    QProcess* process = new QProcess();
-    process->setProcessChannelMode(QProcess::MergedChannels);
-    process->start("/mplayer/MPlayer-1.0rc2/mplayer -framedrop -slave -quiet -vo fbdev ./videos/test.mp4");
+    QProcess* process = new QProcess(this);
+    QStringList args;
+    args << "-slave";
+    args << "-quiet";
+    args << "-vo";
+    args << "fbdev";
+    args << "-framedrop";
+    args << "/home/ch/intel/test.mkv";
+
+    process->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
 }
