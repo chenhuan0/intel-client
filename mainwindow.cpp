@@ -37,6 +37,11 @@ void CMainWindow::play()
     args << "-vo";
     args << "fbdev";
     args << "-framedrop";
+    args << "-zoom";
+    args << "-x";
+    args << "640";
+    args << "-y";
+    args << "480";
     args << "/home/ch/videos/test.mp4";
 
     process->start("/mplayer/MPlayer-1.0rc2/mplayer", args);

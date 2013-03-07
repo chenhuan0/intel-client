@@ -9,4 +9,7 @@ CControlBar::CControlBar(QWidget* parent, Qt::WFlags flags)
     setMaximumSize(80, 480);
     setMinimumSize(80, 480);
     setGeometry(640, 0, 80, 480);
+    QPalette plt = palette();
+    plt.setColor(QPalette::Background, QColor("black"));
+    setPalette(plt);
 }
