@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Mar 7 19:36:11 2013
+** Created: Thu Mar 7 19:41:20 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -71,7 +71,7 @@ public:
     {
         if (mainWindow->objectName().isEmpty())
             mainWindow->setObjectName(QString::fromUtf8("mainWindow"));
-        mainWindow->resize(800, 600);
+        mainWindow->resize(720, 480);
         centralwidget = new QWidget(mainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
