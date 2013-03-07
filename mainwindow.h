@@ -13,5 +13,8 @@ public:
 private:
     Ui::mainWindow ui;
     void setup();
+
+private slots:
+    void play();
 };
 #endif 
