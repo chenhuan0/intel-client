@@ -32,4 +32,11 @@ void CMainWindow::play()
     playController->show();
     playController->setFilename("/home/ch/videos/test.mp4");
     playController->play();
+    this->hide();
+}
+
+void CMainWindow::stop()
+{
+    this->show();
+    delete playController;
 }

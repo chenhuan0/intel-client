@@ -15,6 +15,8 @@ private:
     CPlayController* playController;
     void setup();
 
+public slots:
+    void stop();
 private slots:
     void play();
     void browse();
