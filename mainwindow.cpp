@@ -30,6 +30,6 @@ void CMainWindow::play()
 {
     playController = new CPlayController(this);
     playController->show();
-    playController->setFilename("./test.mkv");
+    playController->setFilename("/home/ch/videos/test.mp4");
     playController->play();
 }
