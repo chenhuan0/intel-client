@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri Mar 8 20:57:12 2013
+** Created: Sat Mar 9 00:11:00 2013
 **      by: Qt User Interface Compiler version 4.8.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -32,12 +32,12 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout_3;
-    QSpacerItem *verticalSpacer;
+    QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
     QLabel *label;
     QSpacerItem *horizontalSpacer_2;
-    QSpacerItem *verticalSpacer_2;
+    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer_3;
     QLabel *label_2;
@@ -51,36 +51,36 @@ public:
     QToolButton *playButton;
     QSpacerItem *horizontalSpacer_6;
     QHBoxLayout *horizontalLayout_4;
-    QSpacerItem *horizontalSpacer_8;
-    QLabel *label_3;
-    QSpacerItem *horizontalSpacer_9;
-    QSpacerItem *horizontalSpacer_14;
-    QVBoxLayout *verticalLayout_2;
-    QHBoxLayout *horizontalLayout_5;
     QSpacerItem *horizontalSpacer_7;
+    QLabel *label_3;
+    QSpacerItem *horizontalSpacer_8;
+    QSpacerItem *horizontalSpacer_15;
+    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_6;
+    QSpacerItem *horizontalSpacer_9;
     QToolButton *browseButton;
     QSpacerItem *horizontalSpacer_10;
-    QHBoxLayout *horizontalLayout_6;
+    QHBoxLayout *horizontalLayout_5;
     QSpacerItem *horizontalSpacer_11;
     QLabel *label_4;
     QSpacerItem *horizontalSpacer_12;
-    QSpacerItem *horizontalSpacer_15;
+    QSpacerItem *horizontalSpacer_14;
     QSpacerItem *verticalSpacer_4;
 
     void setupUi(QMainWindow *mainWindow)
     {
         if (mainWindow->objectName().isEmpty())
             mainWindow->setObjectName(QString::fromUtf8("mainWindow"));
-        mainWindow->resize(720, 480);
+        mainWindow->resize(720, 481);
         centralwidget = new QWidget(mainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_3->addItem(verticalSpacer);
+        verticalLayout_3->addItem(verticalSpacer_2);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
@@ -101,9 +101,9 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_3->addItem(verticalSpacer_2);
+        verticalLayout_3->addItem(verticalSpacer);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
@@ -161,9 +161,9 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_4->addItem(horizontalSpacer_8);
+        horizontalLayout_4->addItem(horizontalSpacer_7);
 
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
@@ -171,9 +171,9 @@ public:
 
         horizontalLayout_4->addWidget(label_3);
 
-        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_4->addItem(horizontalSpacer_9);
+        horizontalLayout_4->addItem(horizontalSpacer_8);
 
 
         verticalLayout->addLayout(horizontalLayout_4);
@@ -181,17 +181,17 @@ public:
 
         horizontalLayout_7->addLayout(verticalLayout);
 
-        horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_7->addItem(horizontalSpacer_14);
+        horizontalLayout_7->addItem(horizontalSpacer_15);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_5->addItem(horizontalSpacer_7);
+        horizontalLayout_6->addItem(horizontalSpacer_9);
 
         browseButton = new QToolButton(centralwidget);
         browseButton->setObjectName(QString::fromUtf8("browseButton"));
@@ -201,40 +201,40 @@ public:
         browseButton->setIconSize(QSize(100, 100));
         browseButton->setAutoRaise(true);
 
-        horizontalLayout_5->addWidget(browseButton);
+        horizontalLayout_6->addWidget(browseButton);
 
         horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_5->addItem(horizontalSpacer_10);
+        horizontalLayout_6->addItem(horizontalSpacer_10);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_5);
+        verticalLayout_2->addLayout(horizontalLayout_6);
 
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_6->addItem(horizontalSpacer_11);
+        horizontalLayout_5->addItem(horizontalSpacer_11);
 
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setPixmap(QPixmap(QString::fromUtf8(":/images/browselabel.jpg")));
 
-        horizontalLayout_6->addWidget(label_4);
+        horizontalLayout_5->addWidget(label_4);
 
         horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_6->addItem(horizontalSpacer_12);
+        horizontalLayout_5->addItem(horizontalSpacer_12);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_6);
+        verticalLayout_2->addLayout(horizontalLayout_5);
 
 
         horizontalLayout_7->addLayout(verticalLayout_2);
 
-        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_7->addItem(horizontalSpacer_15);
+        horizontalLayout_7->addItem(horizontalSpacer_14);
 
 
         verticalLayout_3->addLayout(horizontalLayout_7);

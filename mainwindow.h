@@ -4,6 +4,8 @@
 #include "ui_mainwindow.h"
 
 class CPlayController;
+class CClassWindow;
+
 class CMainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -13,11 +15,13 @@ public:
 private:
     Ui::mainWindow ui;
     CPlayController* playController;
+    CClassWindow* classWindow;
     void setup();
 
 
 public slots:
-    void stop();
+    void playstop();
+    void browseend();
 private slots:
     void play();
     void browse();

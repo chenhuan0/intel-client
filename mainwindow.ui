@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>720</width>
-    <height>480</height>
+    <height>481</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <spacer name="verticalSpacer">
+       <spacer name="verticalSpacer_2">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -71,7 +71,7 @@
        </layout>
       </item>
       <item>
-       <spacer name="verticalSpacer_2">
+       <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -206,7 +206,7 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <spacer name="horizontalSpacer_8">
+             <spacer name="horizontalSpacer_7">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -229,7 +229,7 @@
              </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer_9">
+             <spacer name="horizontalSpacer_8">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -246,7 +246,7 @@
          </layout>
         </item>
         <item>
-         <spacer name="horizontalSpacer_14">
+         <spacer name="horizontalSpacer_15">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -261,9 +261,9 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
-             <spacer name="horizontalSpacer_7">
+             <spacer name="horizontalSpacer_9">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -311,7 +311,7 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
              <spacer name="horizontalSpacer_11">
               <property name="orientation">
@@ -353,7 +353,7 @@
          </layout>
         </item>
         <item>
-         <spacer name="horizontalSpacer_15">
+         <spacer name="horizontalSpacer_14">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>

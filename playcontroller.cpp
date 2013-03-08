@@ -15,7 +15,7 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
 
     connect(ui.playButton, SIGNAL(clicked()), this, SLOT(pause()));
     connect(ui.stopButton, SIGNAL(clicked()), this, SLOT(stop()));
-    connect(ui.stopButton, SIGNAL(clicked()), parent, SLOT(stop()));
+    connect(ui.stopButton, SIGNAL(clicked()), parent, SLOT(playstop()));
     setMouseTracking(true);
 }
 
