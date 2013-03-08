@@ -1,6 +1,6 @@
 #include "mainwindow.h"
-#include "controlbar.h"
 #include "class.h"
+#include "playcontroller.h"
 
 CMainWindow::CMainWindow(QWidget* parent, Qt::WFlags flags)
 {
@@ -28,21 +28,8 @@ void CMainWindow::browse()
 }
 void CMainWindow::play()
 {
-    controlBar = new CControlBar();
-    controlBar->show();
-    QProcess* process = new QProcess(this);
-    QStringList args;
-    args << "-slave";
-    args << "-quiet";
-    args << "-vo";
-    args << "fbdev";
-    args << "-framedrop";
-    args << "-zoom";
-    args << "-x";
-    args << "640";
-    args << "-y";
-    args << "480";
-    args << "/home/ch/videos/test.mp4";
-
-    process->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
+    playController = new CPlayController(this);
+    playController->show();
+    playController->setFilename("./test.mkv");
+    playController->play();
 }

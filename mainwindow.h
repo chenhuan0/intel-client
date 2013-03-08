@@ -3,7 +3,7 @@
 #include "common.h"
 #include "ui_mainwindow.h"
 
-class CControlBar;
+class CPlayController;
 class CMainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -12,7 +12,7 @@ public:
 
 private:
     Ui::mainWindow ui;
-    CControlBar* controlBar;
+    CPlayController* playController;
     void setup();
 
 private slots:
