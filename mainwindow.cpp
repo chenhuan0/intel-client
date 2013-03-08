@@ -8,8 +8,6 @@ CMainWindow::CMainWindow(QWidget* parent, Qt::WFlags flags)
     flags |= Qt::FramelessWindowHint;
     setWindowFlags(flags); 
     this->setup();
-    setMouseTracking(true);
-    ui.playButton->setMouseTracking(true);
 }
 
 void CMainWindow::setup()

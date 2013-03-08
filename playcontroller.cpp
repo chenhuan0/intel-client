@@ -3,12 +3,12 @@
 
 CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
 {
+
     ui.setupUi(this);
+
     flags |= Qt::FramelessWindowHint;
     setWindowFlags(flags); 
-    setMaximumSize(80, 480);
-    setMinimumSize(80, 480);
-    setGeometry(640, 0, 80, 480);
+
     QPalette plt = palette();
     plt.setColor(QPalette::Background, QColor("black"));
     setPalette(plt);
@@ -16,6 +16,7 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
     connect(ui.playButton, SIGNAL(clicked()), this, SLOT(pause()));
     connect(ui.stopButton, SIGNAL(clicked()), this, SLOT(stop()));
     connect(ui.stopButton, SIGNAL(clicked()), parent, SLOT(stop()));
+    setMouseTracking(true);
 }
 
 void CPlayController::play()
@@ -62,4 +63,17 @@ void CPlayController::stop()
 {
     mplayer->terminate();
     delete mplayer;
+}
+
+
+void CPlayController::mouseMoveEvent(QMouseEvent* event)
+{
+    QPoint mouse = event->pos();
+    int x = mouse.x();
+    int y = mouse.y();
+    if (x <= 640)
+    {
+        QPoint pos(640, y);
+        QCursor::setPos(pos);
+    }
 }

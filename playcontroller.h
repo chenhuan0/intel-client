@@ -16,6 +16,7 @@ private:
     QString filename;
 
     bool isPlaying;
+    void mouseMoveEvent(QMouseEvent* event);
 
 private slots:
     void pause();
