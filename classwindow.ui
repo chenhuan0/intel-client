@@ -117,8 +117,7 @@
          <item row="1" column="3">
           <widget class="QToolButton" name="class8">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -131,8 +130,7 @@ color: rgb(85, 170, 127);</string>
          <item row="0" column="0">
           <widget class="QToolButton" name="class1">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -145,8 +143,7 @@ color: rgb(85, 170, 127);</string>
          <item row="0" column="2">
           <widget class="QToolButton" name="class3">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -159,8 +156,7 @@ color: rgb(85, 170, 127);</string>
          <item row="0" column="1">
           <widget class="QToolButton" name="class2">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -173,8 +169,7 @@ color: rgb(85, 170, 127);</string>
          <item row="1" column="2">
           <widget class="QToolButton" name="class7">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -187,8 +182,7 @@ color: rgb(85, 170, 127);</string>
          <item row="1" column="0">
           <widget class="QToolButton" name="class5">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -201,8 +195,7 @@ color: rgb(85, 170, 127);</string>
          <item row="1" column="1">
           <widget class="QToolButton" name="class6">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -215,8 +208,7 @@ color: rgb(85, 170, 127);</string>
          <item row="0" column="3">
           <widget class="QToolButton" name="class4">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -229,8 +221,7 @@ color: rgb(85, 170, 127);</string>
          <item row="2" column="0">
           <widget class="QToolButton" name="class9">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -243,8 +234,7 @@ color: rgb(85, 170, 127);</string>
          <item row="2" column="1">
           <widget class="QToolButton" name="class10">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -257,8 +247,7 @@ color: rgb(85, 170, 127);</string>
          <item row="2" column="2">
           <widget class="QToolButton" name="class11">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
@@ -271,8 +260,7 @@ color: rgb(85, 170, 127);</string>
          <item row="2" column="3">
           <widget class="QToolButton" name="class12">
            <property name="styleSheet">
-            <string notr="true">font: 22pt &quot;楷体&quot;;
-color: rgb(85, 170, 127);</string>
+            <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
             <string>测试分类</string>
