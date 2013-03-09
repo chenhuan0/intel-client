@@ -25,5 +25,6 @@ private slots:
     void showVideos();
 
     void play();
+    void choose();
 };
 #endif

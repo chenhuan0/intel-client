@@ -16,5 +16,12 @@ int main(int argc, char *argv[])
     CConfig::NOW_PAGE = START;
     CConfig::NEXT_PAGE = MAINCLASS;
     CConfig::PREVIOUS_PAGE = NO;
+    //Load user interst video
+    ifstream interest((ROOT_PATH + INTEREST_FILE).c_str());
+    string line;
+    while (getline(interest, line))
+    {
+        CConfig::interestFile.insert(String2QString(line));
+    }
     return a.exec();
 }

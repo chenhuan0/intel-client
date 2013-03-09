@@ -7,10 +7,16 @@ int CConfig::PREVIOUS_PAGE;
 int CConfig::NOW_PAGE;
 
 int CConfig::PAGE = 0;
+bool CConfig::isPlay = true;
 QList< QList<QStringList> > CConfig::result;
 
 QString CConfig::subClassID;
 QString CConfig::mainClassID;
+
+QSet<QString> CConfig::interestFile;
+QSet<QString> CConfig::haveFile;
+QSet<QString> CConfig::haveMainClass;
+QSet<QString> CConfig::haveSubClass;
 
 void CConfig::getMainClasses()
 {

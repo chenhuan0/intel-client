@@ -9,7 +9,7 @@ CMainWindow::CMainWindow(QWidget* parent, Qt::WFlags flags)
     ui.setupUi(this);
     flags |= Qt::FramelessWindowHint;
     setWindowFlags(flags); 
-    setGeometry(0, 0, 720, 480);
+    setGeometry(0, 0, 720, 576);
     this->setup();
 }
 
@@ -25,8 +25,13 @@ void CMainWindow::setup()
 
 void CMainWindow::browse()
 {
-
-
+    CConfig::isPlay = false;
+    CConfig::NOW_PAGE = MAINCLASS;
+    CConfig::NEXT_PAGE = SUBCLASS;
+    CConfig::PREVIOUS_PAGE = START;
+    this->hide();
+    classWindow = new CClassWindow(this);
+    classWindow->show();
 }
 
 void CMainWindow::browseend()
@@ -39,6 +44,7 @@ void CMainWindow::browseend()
 }
 void CMainWindow::play()
 {
+    CConfig::isPlay = true;
     CConfig::NOW_PAGE = MAINCLASS;
     CConfig::NEXT_PAGE = SUBCLASS;
     CConfig::PREVIOUS_PAGE = START;
@@ -46,4 +52,3 @@ void CMainWindow::play()
     classWindow = new CClassWindow(this);
     classWindow->show();
 }
-

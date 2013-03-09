@@ -6,10 +6,12 @@
 #include <QSqlRecord>
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 const string ROOT_PATH = "./";
 const string INDEX_DB_NAME = "indexdb";
+const string INTEREST_FILE = "interest";
 
 typedef int BOOL;
 const int SUCCESS = 1;

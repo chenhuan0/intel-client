@@ -12,7 +12,7 @@ CClassWindow::CClassWindow(QWidget* parent, Qt::WFlags flags)
     QPalette plt = palette();
     plt.setColor(QPalette::Background, QColor("black"));
     setPalette(plt);
-    setGeometry(0, 0, 720, 480);
+    setGeometry(0, 0, 720, 576);
     classButtonlist.append(ui.class1);
     classButtonlist.append(ui.class2);
     classButtonlist.append(ui.class3);
@@ -157,4 +157,11 @@ void CClassWindow::backFromContent()
 
     this->show();  
     delete videoWindow;
+    //Write interest set to file
+    ofstream interest((ROOT_PATH + INTEREST_FILE).c_str());
+    foreach (QString each, CConfig::interestFile)
+    {
+        interest << QString2String(each) << endl;
+    }
+    interest.close();
 }

@@ -12,7 +12,7 @@ CVideoWindow::CVideoWindow(QWidget* parent, Qt::WFlags flags)
     QPalette plt = palette();
     plt.setColor(QPalette::Background, QColor("black"));
     setPalette(plt);
-    setGeometry(0, 0, 720, 480);
+    setGeometry(0, 0, 720, 576);
 
     videoButtonlist.append(ui.video1);
     videoButtonlist.append(ui.video2);
@@ -34,7 +34,15 @@ CVideoWindow::CVideoWindow(QWidget* parent, Qt::WFlags flags)
         QFont font("KaiTi", 14);
         font.setBold(true);
         everyone->setFont(font);
-        connect(everyone, SIGNAL(clicked()), this, SLOT(play()));
+        if (CConfig::isPlay)
+        {
+            connect(everyone, SIGNAL(clicked()), this, SLOT(play()));
+        }
+        else
+        {
+            connect(everyone, SIGNAL(clicked()), this, SLOT(choose()));
+        }
+        
     }
 }
 
@@ -69,12 +77,25 @@ void CVideoWindow::showVideos()
     }
     foreach(QStringList line, CConfig::result[CConfig::PAGE])
     {
+
         videoButtonlist[count]->setWhatsThis(line[2]);
         videoButtonlist[count]->setText(line[1]);
         videoButtonlist[count]->setVisible(true);
         videoButtonlist[count]->setIcon(QIcon(String2QString(ROOT_PATH + "previews/") + line[3]));
+        if (!CConfig::isPlay)
+        {
+            QString now = videoButtonlist[count]->text();
+            if (CConfig::interestFile.contains(line[2]))
+            {
+                videoButtonlist[count]->setText(now + String2QString("\n感兴趣"));
+            }
+            now = videoButtonlist[count]->text();
+            if (CConfig::haveFile.contains(line[2]))
+            {
+                videoButtonlist[count]->setText(now + String2QString("\n本机有此视频"));
+            }
+        }
         count++;
-
     }  
     foreach(QToolButton* button, videoButtonlist)
     {
@@ -88,11 +109,9 @@ void CVideoWindow::showVideos()
 void CVideoWindow::play()
 {
     QToolButton* subclass = (QToolButton*)(sender());
-
     playController = new CPlayController(this);
     playController->show();
     playController->setFilename(String2QString(ROOT_PATH + "videos/") + subclass->whatsThis());
-    qDebug() << String2QString(ROOT_PATH + "videos/") + subclass->whatsThis();
     playController->play();
     this->hide();
 }
@@ -101,4 +120,28 @@ void CVideoWindow::playstop()
 {
     this->show();
     delete playController;
+}
+
+void CVideoWindow::choose()
+{
+    QToolButton* subclass = (QToolButton*)(sender());
+    QString mainClassID = CConfig::mainClassID;
+    QString subClassID = CConfig::subClassID;
+    QString contentID = subclass->whatsThis();
+    QString name = subclass->text().split("\n")[0];
+    if (CConfig::interestFile.contains(contentID))
+    {
+        CConfig::interestFile.remove(contentID);
+        subclass->setText(name);
+    }
+    else
+    {
+        CConfig::interestFile.insert(contentID);
+        subclass->setText(name + String2QString("\n感兴趣"));
+    }
+    if (CConfig::haveFile.contains(contentID))
+    {
+        QString now = subclass->text();
+        subclass->setText(now + String2QString("\n本机有此视频"));
+    }
 }

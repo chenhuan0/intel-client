@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>720</width>
-    <height>480</height>
+    <height>576</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>720</width>
+    <height>576</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>720</width>
+    <height>576</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -16,8 +28,8 @@
   <widget class="QToolButton" name="stopButton">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>75</y>
+     <x>100</x>
+     <y>500</y>
      <width>77</width>
      <height>76</height>
     </rect>
@@ -42,8 +54,8 @@
   <widget class="QToolButton" name="playButton">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>0</y>
+     <x>10</x>
+     <y>500</y>
      <width>77</width>
      <height>76</height>
     </rect>

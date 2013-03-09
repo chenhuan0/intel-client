@@ -17,7 +17,6 @@ private:
     CClassWindow* classWindow;
     void setup();
 
-
 public slots:
 
     void browseend();

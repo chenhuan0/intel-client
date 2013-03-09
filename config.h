@@ -20,6 +20,13 @@ public:
 
     static QString subClassID;
     static void getVideos();
+
+    static bool isPlay;  //identify user want to watch video or choose video
+
+    static QSet<QString> interestFile;
+    static QSet<QString> haveFile;
+    static QSet<QString> haveMainClass;
+    static QSet<QString> haveSubClass;
 };
 
 #endif

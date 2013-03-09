@@ -12,7 +12,7 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
     QPalette plt = palette();
     plt.setColor(QPalette::Background, QColor("black"));
     setPalette(plt);
-    setGeometry(0, 0, 720, 480);
+    setGeometry(0, 0, 720, 576);
     connect(ui.playButton, SIGNAL(clicked()), this, SLOT(pause()));
     connect(ui.stopButton, SIGNAL(clicked()), this, SLOT(stop()));
     connect(ui.stopButton, SIGNAL(clicked()), parent, SLOT(playstop()));
@@ -71,9 +71,12 @@ void CPlayController::mouseMoveEvent(QMouseEvent* event)
     QPoint mouse = event->pos();
     int x = mouse.x();
     int y = mouse.y();
-    if (x <= 640)
+    qDebug() << y;
+    
+    if (y <= 500)
     {
-        QPoint pos(640, y);
+        QPoint pos(x, 500);
         QCursor::setPos(pos);
     }
+    
 }
