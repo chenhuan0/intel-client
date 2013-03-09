@@ -9,8 +9,6 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(codec);
     QTextCodec::setCodecForLocale(codec);
     QTextCodec::setCodecForTr(codec);
-    QFont font("wenquanyi", 6);
-    a.setFont(font);
     CMainWindow w;
     w.show();
     CConfig::NOW_PAGE = START;
@@ -23,5 +21,20 @@ int main(int argc, char *argv[])
     {
         CConfig::interestFile.insert(String2QString(line));
     }
+    interest.close();
+    //Load in device load
+    ifstream indevice((ROOT_PATH + HAVE_FILE).c_str());
+    while (getline(indevice, line))
+    {
+        QString info = String2QString(line);
+        QString mainclass = info.split("###")[0];
+        QString subclass = info.split("###")[1];
+        QString content = info.split("###")[2];
+        CConfig::haveMainClass.insert(mainclass);
+        CConfig::haveSubClass.insert(subclass);
+        CConfig::haveFile.insert(content);
+    }
+    indevice.close();
+
     return a.exec();
 }

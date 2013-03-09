@@ -21,7 +21,22 @@ QSet<QString> CConfig::haveSubClass;
 void CConfig::getMainClasses()
 {
     string cmd = "select * from mainclasses";
-    QString sql = String2QString(cmd);
+    QString sql;
+    if (CConfig::isPlay)
+    {
+        QString addin = String2QString(" where id in (");
+        QStringList tmpList;
+        foreach(QString tmp, CConfig::haveMainClass)
+        {
+            tmpList << tmp;
+        }
+        addin = addin + tmpList.join(",") + ")";
+        sql = String2QString(cmd) + addin;
+    }
+    else
+    {
+        sql = String2QString(cmd);
+    }
     QList<QStringList> tmp;
     result.clear();
     if (CSQL::query(String2QString(ROOT_PATH + INDEX_DB_NAME), sql) == ERROR)
@@ -54,7 +69,23 @@ void CConfig::getMainClasses()
 void CConfig::getSubClasses()
 {
     string cmd = "select * from subclasses where mainclass = ";
-    QString sql = String2QString(cmd) + mainClassID;
+    QString sql;
+    if (CConfig::isPlay)
+    {
+        QString addin = String2QString(" and id in (");
+        QStringList tmpList;
+        foreach(QString tmp, CConfig::haveSubClass)
+        {
+            tmpList << tmp;
+        }
+        addin = addin + tmpList.join(",") + ")";
+        sql = String2QString(cmd) + mainClassID + addin;
+    }
+    else
+    {
+        sql = String2QString(cmd) + mainClassID;
+    }
+
     QList<QStringList> tmp;
     result.clear();
     if (CSQL::query(String2QString(ROOT_PATH + INDEX_DB_NAME), sql) == ERROR)
@@ -89,7 +120,23 @@ void CConfig::getSubClasses()
 void CConfig::getVideos()
 {
     string cmd = "select * from contents where subclass = ";
-    QString sql = String2QString(cmd) + subClassID;
+    QString sql;
+
+    if (CConfig::isPlay)
+    {
+        QString addin = String2QString(" and filename in ('");
+        QStringList tmpList;
+        foreach(QString tmp, CConfig::haveFile)
+        {
+            tmpList << tmp;
+        }
+        addin = addin + tmpList.join("','") + "')";
+        sql = String2QString(cmd) + subClassID + addin;
+    }
+    else
+    {
+        sql = String2QString(cmd) + subClassID;
+    }
     QList<QStringList> tmp;
     result.clear();
     if (CSQL::query(String2QString(ROOT_PATH + INDEX_DB_NAME), sql) == ERROR)

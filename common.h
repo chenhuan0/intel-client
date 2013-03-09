@@ -12,6 +12,7 @@ using namespace std;
 const string ROOT_PATH = "./";
 const string INDEX_DB_NAME = "indexdb";
 const string INTEREST_FILE = "interest";
+const string HAVE_FILE = "indevice";
 
 typedef int BOOL;
 const int SUCCESS = 1;
