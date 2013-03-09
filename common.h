@@ -10,7 +10,6 @@ using namespace std;
 
 const string ROOT_PATH = "./";
 const string INDEX_DB_NAME = "indexdb";
-const string CONTENT_DB_NAME = "contentdb";
 
 typedef int BOOL;
 const int SUCCESS = 1;

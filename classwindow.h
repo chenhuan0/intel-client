@@ -4,13 +4,16 @@
 #include "config.h"
 #include "ui_classwindow.h"
 
+class CVideoWindow;
+
 class CClassWindow : public QWidget 
 {
     Q_OBJECT
 private:
     Ui::classWindow ui;
     QWidget* parent;
-    
+    CVideoWindow* videoWindow;
+
 public:
     CClassWindow(QWidget* parent = 0, Qt::WFlags flags = 0);
     QList<QToolButton*> classButtonlist;
@@ -22,6 +25,9 @@ private slots:
     void showClasses();
 
     void mainClassClicked();
+    void subClassClicked();
+
     void backToMainClass();
+    void backFromContent();
 };
 #endif

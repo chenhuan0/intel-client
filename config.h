@@ -11,13 +11,15 @@ public:
     static int NOW_PAGE;
 
     static QList< QList<QStringList> > result;
-    
+
     static int PAGE;
     static void getMainClasses();
-    
+
+    static QString mainClassID;
+    static void getSubClasses();
 
     static QString subClassID;
-    static void getSubClasses();
+    static void getVideos();
 };
 
 #endif

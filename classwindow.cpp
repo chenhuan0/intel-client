@@ -1,4 +1,5 @@
 #include "classwindow.h"
+#include "videowindow.h"
 #include "config.h"
 #include "sql.h"
 
@@ -11,6 +12,7 @@ CClassWindow::CClassWindow(QWidget* parent, Qt::WFlags flags)
     QPalette plt = palette();
     plt.setColor(QPalette::Background, QColor("black"));
     setPalette(plt);
+    setGeometry(0, 0, 720, 480);
     classButtonlist.append(ui.class1);
     classButtonlist.append(ui.class2);
     classButtonlist.append(ui.class3);
@@ -45,6 +47,7 @@ void  CClassWindow::showClasses()
         CConfig::getMainClasses();
         foreach (QToolButton* everyone, classButtonlist)
         {
+            disconnect(everyone, SIGNAL(clicked()), this, SLOT(subClassClicked()));
             connect(everyone, SIGNAL(clicked()), this, SLOT(mainClassClicked()));
             connect(everyone, SIGNAL(clicked()), this, SLOT(showClasses()));
         }
@@ -57,6 +60,7 @@ void  CClassWindow::showClasses()
         {
             disconnect(everyone, SIGNAL(clicked()), this, SLOT(mainClassClicked()));
             disconnect(everyone, SIGNAL(clicked()), this, SLOT(showClasses()));
+            connect(everyone, SIGNAL(clicked()), this, SLOT(subClassClicked()));
         }
         disconnect(ui.backButton, SIGNAL(clicked()), parent, SLOT(browseend()));
         connect(ui.backButton, SIGNAL(clicked()), this, SLOT(backToMainClass()));
@@ -85,7 +89,7 @@ void  CClassWindow::showClasses()
     foreach(QToolButton* button, classButtonlist)
     {
         button->setText("NULL");
-        button->setAccessibleName("");
+        button->setWhatsThis("");
     }
     foreach(QStringList line, CConfig::result[CConfig::PAGE])
     {
@@ -106,13 +110,29 @@ void  CClassWindow::showClasses()
 void CClassWindow::mainClassClicked()
 {
     QToolButton* mainclass = (QToolButton*)(sender());
-    CConfig::subClassID = mainclass->whatsThis();
+    CConfig::mainClassID = mainclass->whatsThis();
 
     CConfig::NOW_PAGE = SUBCLASS;
     CConfig::NEXT_PAGE = CONTENT;
     CConfig::PREVIOUS_PAGE = MAINCLASS;
 
     CConfig::PAGE = 0;
+}
+
+void CClassWindow::subClassClicked()
+{
+    QToolButton* subclass = (QToolButton*)(sender());
+    CConfig::subClassID = subclass->whatsThis();
+
+    CConfig::NOW_PAGE = CONTENT;
+    CConfig::NEXT_PAGE = NO;
+    CConfig::PREVIOUS_PAGE = SUBCLASS;
+
+    CConfig::PAGE = 0;
+
+    this->hide();
+    videoWindow = new CVideoWindow(this);
+    videoWindow->show();
 }
 
 void CClassWindow::backToMainClass()
@@ -122,6 +142,17 @@ void CClassWindow::backToMainClass()
     CConfig::PREVIOUS_PAGE = START;
 
     CConfig::PAGE = 0;
-
     showClasses();
+}
+
+void CClassWindow::backFromContent()
+{
+    CConfig::NOW_PAGE = SUBCLASS;
+    CConfig::NEXT_PAGE = CONTENT;
+    CConfig::PREVIOUS_PAGE = MAINCLASS;
+
+    CConfig::PAGE = 0;
+
+    this->show();  
+    delete videoWindow;
 }

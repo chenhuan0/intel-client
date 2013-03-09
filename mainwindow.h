@@ -14,13 +14,12 @@ public:
 
 private:
     Ui::mainWindow ui;
-    CPlayController* playController;
     CClassWindow* classWindow;
     void setup();
 
 
 public slots:
-    void playstop();
+
     void browseend();
 private slots:
     void play();

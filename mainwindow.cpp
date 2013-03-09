@@ -9,6 +9,7 @@ CMainWindow::CMainWindow(QWidget* parent, Qt::WFlags flags)
     ui.setupUi(this);
     flags |= Qt::FramelessWindowHint;
     setWindowFlags(flags); 
+    setGeometry(0, 0, 720, 480);
     this->setup();
 }
 
@@ -24,12 +25,7 @@ void CMainWindow::setup()
 
 void CMainWindow::browse()
 {
-    CConfig::NOW_PAGE = MAINCLASS;
-    CConfig::NEXT_PAGE = SUBCLASS;
-    CConfig::PREVIOUS_PAGE = START;
-    this->hide();
-    classWindow = new CClassWindow(this);
-    classWindow->show();
+
 
 }
 
@@ -43,15 +39,11 @@ void CMainWindow::browseend()
 }
 void CMainWindow::play()
 {
-    playController = new CPlayController(this);
-    playController->show();
-    playController->setFilename("/home/ch/videos/test.mp4");
-    playController->play();
+    CConfig::NOW_PAGE = MAINCLASS;
+    CConfig::NEXT_PAGE = SUBCLASS;
+    CConfig::PREVIOUS_PAGE = START;
     this->hide();
+    classWindow = new CClassWindow(this);
+    classWindow->show();
 }
 
-void CMainWindow::playstop()
-{
-    this->show();
-    delete playController;
-}

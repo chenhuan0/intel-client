@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="/">
+    <file>images/nopreview.png</file>
+    <file>images/video.jpg</file>
     <file>images/back.jpg</file>
     <file>images/next.jpg</file>
     <file>images/previous.jpg</file>

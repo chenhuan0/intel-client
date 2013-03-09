@@ -10,6 +10,7 @@ int CConfig::PAGE = 0;
 QList< QList<QStringList> > CConfig::result;
 
 QString CConfig::subClassID;
+QString CConfig::mainClassID;
 
 void CConfig::getMainClasses()
 {
@@ -47,7 +48,7 @@ void CConfig::getMainClasses()
 void CConfig::getSubClasses()
 {
     string cmd = "select * from subclasses where mainclass = ";
-    QString sql = String2QString(cmd) + subClassID;
+    QString sql = String2QString(cmd) + mainClassID;
     QList<QStringList> tmp;
     result.clear();
     if (CSQL::query(String2QString(ROOT_PATH + INDEX_DB_NAME), sql) == ERROR)
@@ -66,6 +67,41 @@ void CConfig::getSubClasses()
             count++;
             tmp.append(everyone);
             if (count == 12)
+            {
+                result.append(tmp);
+                tmp.clear();
+                count = 0;
+            }
+        }
+    }
+    if (!tmp.empty())
+    {
+        result.append(tmp);
+    }
+}
+
+void CConfig::getVideos()
+{
+    string cmd = "select * from contents where subclass = ";
+    QString sql = String2QString(cmd) + subClassID;
+    QList<QStringList> tmp;
+    result.clear();
+    if (CSQL::query(String2QString(ROOT_PATH + INDEX_DB_NAME), sql) == ERROR)
+    {
+        qDebug() << "Cannot connecct database";
+    }
+    if (CSQL::result.size() <= 6)
+    {       
+        result.append(CSQL::result);
+    } 
+    else
+    {
+        int count = 0;
+        foreach(QStringList everyone, CSQL::result)
+        {
+            count++;
+            tmp.append(everyone);
+            if (count == 6)
             {
                 result.append(tmp);
                 tmp.clear();

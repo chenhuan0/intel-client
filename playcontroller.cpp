@@ -12,7 +12,7 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
     QPalette plt = palette();
     plt.setColor(QPalette::Background, QColor("black"));
     setPalette(plt);
-
+    setGeometry(0, 0, 720, 480);
     connect(ui.playButton, SIGNAL(clicked()), this, SLOT(pause()));
     connect(ui.stopButton, SIGNAL(clicked()), this, SLOT(stop()));
     connect(ui.stopButton, SIGNAL(clicked()), parent, SLOT(playstop()));
