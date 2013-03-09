@@ -89,7 +89,7 @@ void  CClassWindow::showClasses()
     }
     foreach(QStringList line, CConfig::result[CConfig::PAGE])
     {
-        classButtonlist[count]->setAccessibleName(line[0]);
+        classButtonlist[count]->setWhatsThis(line[0]);
         classButtonlist[count]->setText(line[1]);
         classButtonlist[count]->setVisible(true);
         count++;
@@ -106,7 +106,7 @@ void  CClassWindow::showClasses()
 void CClassWindow::mainClassClicked()
 {
     QToolButton* mainclass = (QToolButton*)(sender());
-    CConfig::subClassID = mainclass->accessibleName();
+    CConfig::subClassID = mainclass->whatsThis();
 
     CConfig::NOW_PAGE = SUBCLASS;
     CConfig::NEXT_PAGE = CONTENT;
