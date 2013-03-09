@@ -45,19 +45,19 @@ void  CClassWindow::setupButtons()
         //According to now page and the total pages
         if (CConfig::PAGE == 0)
         {
-            ui.previousButton->setEnabled(false);
+            ui.previousButton->setVisible(false);
         }
         else
         {
-            ui.previousButton->setEnabled(true);
+            ui.previousButton->setVisible(true);
         }
         if (CConfig::PAGE == CConfig::result.size() - 1)
         {
-            ui.nextButton->setEnabled(false);
+            ui.nextButton->setVisible(false);
         }
         else
         {
-            ui.nextButton->setEnabled(true);
+            ui.nextButton->setVisible(true);
         }
         //Display the class in this page
         int count = 0;
