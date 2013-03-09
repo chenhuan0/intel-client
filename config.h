@@ -9,11 +9,15 @@ public:
     static int NEXT_PAGE;
     static int PREVIOUS_PAGE;
     static int NOW_PAGE;
+
     static QList< QList<QStringList> > result;
     
     static int PAGE;
     static void getMainClasses();
+    
 
+    static QString subClassID;
+    static void getSubClasses();
 };
 
 #endif
