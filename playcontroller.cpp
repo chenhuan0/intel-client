@@ -71,11 +71,10 @@ void CPlayController::mouseMoveEvent(QMouseEvent* event)
     QPoint mouse = event->pos();
     int x = mouse.x();
     int y = mouse.y();
-    qDebug() << y;
     
-    if (y <= 500)
+    if (y <= 490)
     {
-        QPoint pos(x, 500);
+        QPoint pos(x, 490);
         QCursor::setPos(pos);
     }
     
