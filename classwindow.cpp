@@ -40,7 +40,9 @@ void  CClassWindow::showClasses()
     QToolButton* everyone;
     foreach (everyone, classButtonlist)
     {
-        everyone->setFont(QFont(("KaiTi"), 28));
+        QFont font("KaiTi", 28);
+        font.setBold(true);
+        everyone->setFont(font);
     }
     if (CConfig::NOW_PAGE == MAINCLASS)
     {      
