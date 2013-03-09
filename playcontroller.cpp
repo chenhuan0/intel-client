@@ -30,7 +30,7 @@ void CPlayController::play()
     args << "-framedrop";
     args << "-zoom";
     args << "-x";
-    args << "640";
+    args << "720";
     args << "-y";
     args << "480";
     args << filename;
