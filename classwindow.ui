@@ -110,7 +110,7 @@
         </spacer>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout">
+        <layout class="QGridLayout" name="classLayout">
          <property name="spacing">
           <number>10</number>
          </property>
@@ -120,7 +120,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -133,7 +133,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -146,7 +146,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -159,7 +159,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -172,7 +172,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -185,7 +185,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -198,7 +198,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -211,7 +211,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -224,7 +224,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -237,7 +237,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -250,7 +250,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -263,7 +263,7 @@
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
            <property name="text">
-            <string>测试分类</string>
+            <string>NULL</string>
            </property>
            <property name="autoRaise">
             <bool>true</bool>
@@ -352,7 +352,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton">
+        <widget class="QToolButton" name="previousButton">
          <property name="text">
           <string>...</string>
          </property>
@@ -385,7 +385,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_2">
+        <widget class="QToolButton" name="nextButton">
          <property name="text">
           <string>...</string>
          </property>

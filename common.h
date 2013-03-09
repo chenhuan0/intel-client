@@ -15,9 +15,12 @@ const string CONTENT_DB_NAME = "contentdb";
 typedef int BOOL;
 const int SUCCESS = 1;
 const int ERROR = 0;
-const QString NO_VALUE = "-1";
-const QString CLASS = "0";
-const QString CONTENT = "1";
+
+const int START = 0;
+const int MAINCLASS = 1;
+const int SUBCLASS = 2;
+const int CONTENT = 3;
+const int NO = 4;
 
 static string QString2String(const QString& s)
 {

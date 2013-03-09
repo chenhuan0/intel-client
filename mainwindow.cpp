@@ -2,6 +2,7 @@
 #include "class.h"
 #include "playcontroller.h"
 #include "classwindow.h"
+#include "config.h"
 
 CMainWindow::CMainWindow(QWidget* parent, Qt::WFlags flags)
 {
@@ -23,15 +24,22 @@ void CMainWindow::setup()
 
 void CMainWindow::browse()
 {
+    CConfig::NOW_PAGE = MAINCLASS;
+    CConfig::NEXT_PAGE = SUBCLASS;
+    CConfig::PREVIOUS_PAGE = START;
     this->hide();
     classWindow = new CClassWindow(this);
     classWindow->show();
+
 }
 
 void CMainWindow::browseend()
 {
     delete classWindow;
     this->show();
+    CConfig::NOW_PAGE = START;
+    CConfig::NEXT_PAGE = MAINCLASS;
+    CConfig::PREVIOUS_PAGE = NO;
 }
 void CMainWindow::play()
 {
