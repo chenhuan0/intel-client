@@ -35,8 +35,8 @@ void CPlayController::play()
     QStringList args;
     args << "-slave";
     args << "-quiet";
-    //args << "-vo";
-    //args << "fbdev";
+    args << "-vo";
+    args << "fbdev";
     args << "-framedrop";
     args << "-zoom";
     args << "-x";
@@ -44,8 +44,8 @@ void CPlayController::play()
     args << "-y";
     args << "480";
     args << filename;
-    mplayer->start("/usr/bin/mplayer", args);
-    //mplayer->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
+    //mplayer->start("/usr/bin/mplayer", args);
+    mplayer->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
     
     isPlaying = true;
     isMute = false;
@@ -184,10 +184,6 @@ void CPlayController::refreshTime()
     int percent = ui.playProgress->value();
     nowTime = totalTime * (percent / 100.0);
     ui.nowTime->setText(convertTime(nowTime));
-
-    QString cmd;
-    cmd.sprintf("seek %f 2\n", nowTime);
-    mplayer->write(QString2String(cmd).c_str());
 }
 void CPlayController::startDrag()
 {
