@@ -3,6 +3,9 @@
 #include "common.h"
 #include "ui_playcontroller.h"
 
+class ImSlider;
+
+
 class CPlayController : public QWidget
 {
     Q_OBJECT
@@ -17,6 +20,7 @@ private:
 
     bool isPlaying;
     bool isMute;
+    bool needGetPos;
     void mouseMoveEvent(QMouseEvent* event);
     float totalTime;
     float nowTime;
@@ -31,6 +35,13 @@ private slots:
     void soundDecrease() { mplayer->write("volume -1\n"); };
 
     void message_slots();
-    void progress();
+
+    void startDrag();
+    void dragging();
+    void endDrag();
+    void refreshTime();
 };
+
+
+
 #endif 

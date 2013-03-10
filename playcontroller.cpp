@@ -22,7 +22,10 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
     connect(ui.soundIncreaseButton, SIGNAL(clicked()), this, SLOT(soundIncrease()));
     connect(ui.soundDecreaseButton, SIGNAL(clicked()), this, SLOT(soundDecrease()));
 
-    //connect(ui.playProgress, SIGNAL(valueChanged(int)), this, SLOT(progress()));
+    connect(ui.playProgress, SIGNAL(sliderPressed()), this, SLOT(startDrag()));
+    connect(ui.playProgress, SIGNAL(sliderMoved(int)), this, SLOT(dragging()));
+    connect(ui.playProgress, SIGNAL(sliderReleased()), this, SLOT(endDrag()));
+    connect(ui.playProgress, SIGNAL(valueChanged(int)), this, SLOT(refreshTime()));
     setMouseTracking(true);
 }
 
@@ -49,6 +52,8 @@ void CPlayController::play()
     connect(mplayer, SIGNAL(readyReadStandardOutput()), this, SLOT(message_slots()));
     mplayer->write("get_time_length\n");
     mplayer->write("get_time_pos\n");
+    needGetPos = true;
+
 }
 
 
@@ -159,13 +164,45 @@ void CPlayController::message_slots()
             int percent = nowTime / totalTime * 100;
             ui.playProgress->setValue(percent);
             ui.nowTime->setText(convertTime(nowTime));
-            mplayer->write("get_time_pos\n");    
+            if (needGetPos)
+            {
+                mplayer->write("get_time_pos\n");
+            }
+            
         }
     }
 
 }
 
-void CPlayController::progress()
+void CPlayController::dragging()
 {
-    //mplayer->write("get_percent_pos\n");
+
 }
+
+void CPlayController::refreshTime()
+{
+    int percent = ui.playProgress->value();
+    nowTime = totalTime * (percent / 100.0);
+    ui.nowTime->setText(convertTime(nowTime));
+
+    QString cmd;
+    cmd.sprintf("seek %f 2\n", nowTime);
+    mplayer->write(QString2String(cmd).c_str());
+}
+void CPlayController::startDrag()
+{
+    needGetPos = false;
+}
+
+void CPlayController::endDrag()
+{
+    needGetPos = true;
+    mplayer->write("get_time_pos\n");
+    int percent = ui.playProgress->value();
+    nowTime = totalTime * (percent / 100.0);
+
+    QString cmd;
+    cmd.sprintf("seek %f 2\n", nowTime);
+    mplayer->write(QString2String(cmd).c_str());
+}
+
