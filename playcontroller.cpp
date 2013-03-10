@@ -16,6 +16,9 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
     connect(ui.playButton, SIGNAL(clicked()), this, SLOT(pause()));
     connect(ui.stopButton, SIGNAL(clicked()), this, SLOT(stop()));
     connect(ui.stopButton, SIGNAL(clicked()), parent, SLOT(playstop()));
+    connect(ui.forwardButton, SIGNAL(clicked()), this, SLOT(forward()));
+    connect(ui.backwardButton, SIGNAL(clicked()), this, SLOT(backward()));
+    connect(ui.soundButton, SIGNAL(clicked()), this, SLOT(mute()));
     setMouseTracking(true);
 }
 
@@ -37,6 +40,7 @@ void CPlayController::play()
     //mplayer->start("/usr/bin/mplayer", args);
     mplayer->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
     isPlaying = true;
+    isMute = false;
 }
 
 
@@ -65,6 +69,25 @@ void CPlayController::stop()
     delete mplayer;
 }
 
+void CPlayController::mute()
+{
+    if (isMute)
+    {
+        mplayer->write("mute 1\n");
+        isMute = false;
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/images/control-sound.png"), QSize(), QIcon::Normal, QIcon::Off);
+        ui.soundButton->setIcon(icon);
+    }
+    else
+    {
+        mplayer->write("mute 0\n");
+        isMute = true;
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/images/control-mute.png"), QSize(), QIcon::Normal, QIcon::Off);
+        ui.soundButton->setIcon(icon);
+    }
+}
 
 void CPlayController::mouseMoveEvent(QMouseEvent* event)
 {
@@ -77,5 +100,4 @@ void CPlayController::mouseMoveEvent(QMouseEvent* event)
         QPoint pos(x, 490);
         QCursor::setPos(pos);
     }
-    
 }

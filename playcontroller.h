@@ -16,10 +16,14 @@ private:
     QString filename;
 
     bool isPlaying;
+    bool isMute;
     void mouseMoveEvent(QMouseEvent* event);
 
 private slots:
     void pause();
     void stop();
+    void forward() { mplayer->write("seek 5\n"); };
+    void backward() { mplayer->write("seek -5\n"); };
+    void mute();
 };
 #endif 
