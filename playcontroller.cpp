@@ -26,6 +26,7 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
     connect(ui.playProgress, SIGNAL(sliderMoved(int)), this, SLOT(dragging()));
     connect(ui.playProgress, SIGNAL(sliderReleased()), this, SLOT(endDrag()));
     connect(ui.playProgress, SIGNAL(valueChanged(int)), this, SLOT(refreshTime()));
+    connect(ui.playProgress, SIGNAL(clicked()), this, SLOT(seek()));
 
     
     setMouseTracking(true);
@@ -56,9 +57,7 @@ void CPlayController::play()
     mplayer->write("get_time_length\n");
     mplayer->write("get_time_pos\n");
     needGetPos = true;
-
 }
-
 
 void CPlayController::pause()
 {
@@ -172,6 +171,7 @@ QString convertTime(float oldtime)
     result.sprintf("%02d:%02d:%02d", hour, minute, second);
     return result;
 }
+
 void CPlayController::message_slots()
 {
     while(mplayer->canReadLine())
@@ -193,10 +193,10 @@ void CPlayController::message_slots()
             QString string = codec->toUnicode(buffer);
             nowTime = string.toFloat();
             int percent = nowTime / totalTime * 100;
-            ui.playProgress->setValue(percent);
-            ui.nowTime->setText(convertTime(nowTime));
             if (needGetPos)
             {
+                ui.playProgress->setValue(percent);
+                ui.nowTime->setText(convertTime(nowTime));
                 mplayer->write("get_time_pos\n");
             }        
         }
@@ -221,10 +221,17 @@ void CPlayController::startDrag()
 
 void CPlayController::endDrag()
 {
-    QString cmd;
-    cmd.sprintf("seek %f 2\n", nowTime);
-    mplayer->write(QString2String(cmd).c_str());
     needGetPos = true;
     mplayer->write("get_time_pos\n");
 }
 
+void CPlayController::seek()
+{
+    needGetPos = false;
+    int percent = ui.playProgress->value();
+    nowTime = totalTime * (percent / 100.0);
+    QString cmd;
+    cmd.sprintf("seek %f 2\n", nowTime);
+    mplayer->write(QString2String(cmd).c_str());
+    needGetPos = true;
+}

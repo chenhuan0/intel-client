@@ -13,6 +13,7 @@ public:
     CPlayController(QWidget* parent = 0, Qt::WFlags flags = 0);
     void play();
     void setFilename(QString filename) { this->filename = filename;};
+    bool needGetPos;
 private:
     Ui::playController ui;
     QProcess* mplayer;
@@ -21,12 +22,13 @@ private:
 
     bool isPlaying;
     bool isMute;
-    bool needGetPos;
+    
     void mouseMoveEvent(QMouseEvent* event);
     float totalTime;
     float nowTime;
 
-
+public slots:
+    void seek();
 private slots:
     void pause();
     void stop();

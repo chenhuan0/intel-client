@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "common.h"
 #include "config.h"
+#include "class.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,6 +15,8 @@ int main(int argc, char *argv[])
     CConfig::NOW_PAGE = START;
     CConfig::NEXT_PAGE = MAINCLASS;
     CConfig::PREVIOUS_PAGE = NO;
+
+    a.setStyle(new MyProxyStyle);
     //Load user interst video
     ifstream interest((ROOT_PATH + INTEREST_FILE).c_str());
     string line;
