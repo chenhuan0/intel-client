@@ -214,6 +214,7 @@ void CPlayController::refreshTime()
     nowTime = totalTime * (percent / 100.0);
     ui.nowTime->setText(convertTime(nowTime));
 }
+
 void CPlayController::startDrag()
 {
     needGetPos = false;
