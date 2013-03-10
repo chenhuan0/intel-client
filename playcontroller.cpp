@@ -41,8 +41,11 @@ void CPlayController::play()
     args << filename;
     //mplayer->start("/usr/bin/mplayer", args);
     mplayer->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
+    
     isPlaying = true;
     isMute = false;
+    connect(mplayer, SIGNAL(readyReadStandardOutput()), this, SLOT(message_slots()));
+    mplayer->write("get_time_length\n");
 }
 
 
@@ -102,4 +105,48 @@ void CPlayController::mouseMoveEvent(QMouseEvent* event)
         QPoint pos(x, 490);
         QCursor::setPos(pos);
     }
+}
+
+QString convertTime(float oldtime)
+{
+    int time = int(oldtime);
+    int hour, minute, second;
+    if (time < 60)
+    {
+        hour = 0;
+        minute = 0;
+        second = time;
+    }
+    else if (time < 3600)
+    {
+        hour = 0;
+        minute = time / 60;
+        second = time - minute * 60;
+    }
+    else
+    {
+        hour = time / 3600;
+        minute = (time - hour * 3600) / 60;
+        second = time - hour * 3600 - minute * 60;
+    }
+    QString result;
+    result.sprintf("%02d:%02d:%02d", hour, minute, second);
+    return result;
+}
+void CPlayController::message_slots()
+{
+    while(mplayer->canReadLine())
+    {
+        QByteArray buffer(mplayer->readLine());
+        if (buffer.startsWith("ANS_LENGTH"))
+        {
+            buffer.remove(0, 11);
+            QTextCodec *codec = QTextCodec::codecForName("UTF-8");
+            QString string = codec->toUnicode(buffer);
+            float totalTime =  string.toFloat();
+            QString totalTimeStr = convertTime(totalTime);
+            ui.totalTime->setText(totalTimeStr);
+        }
+    }
+
 }

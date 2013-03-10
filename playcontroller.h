@@ -27,5 +27,7 @@ private slots:
     void mute();
     void soundIncrease() { mplayer->write("volume +1\n"); };
     void soundDecrease() { mplayer->write("volume -1\n"); };
+
+    void message_slots();
 };
 #endif 
