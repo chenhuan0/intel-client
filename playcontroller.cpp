@@ -18,6 +18,7 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
     connect(ui.stopButton, SIGNAL(clicked()), parent, SLOT(playstop()));
     connect(ui.forwardButton, SIGNAL(clicked()), this, SLOT(forward()));
     connect(ui.backwardButton, SIGNAL(clicked()), this, SLOT(backward()));
+    connect(ui.soundButton, SIGNAL(clicked()), this, SLOT(mute()));
     connect(ui.soundIncreaseButton, SIGNAL(clicked()), this, SLOT(soundIncrease()));
     connect(ui.soundDecreaseButton, SIGNAL(clicked()), this, SLOT(soundDecrease()));
     setMouseTracking(true);
@@ -29,8 +30,8 @@ void CPlayController::play()
     QStringList args;
     args << "-slave";
     args << "-quiet";
-    //args << "-vo";
-    //args << "fbdev";
+    args << "-vo";
+    args << "fbdev";
     args << "-framedrop";
     args << "-zoom";
     args << "-x";
@@ -38,8 +39,8 @@ void CPlayController::play()
     args << "-y";
     args << "480";
     args << filename;
-    mplayer->start("/usr/bin/mplayer", args);
-    //mplayer->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
+    //mplayer->start("/usr/bin/mplayer", args);
+    mplayer->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
     isPlaying = true;
     isMute = false;
 }
