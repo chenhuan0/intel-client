@@ -63,6 +63,7 @@ void CPlayController::pause()
     if (isPlaying)
     {
         isPlaying = false;
+        needGetPos = false;
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/control-play.png"), QSize(), QIcon::Normal, QIcon::Off);
         ui.playButton->setIcon(icon);
@@ -70,6 +71,7 @@ void CPlayController::pause()
     else
     {
         isPlaying = true;
+        needGetPos = true;
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/control-pause.png"), QSize(), QIcon::Normal, QIcon::Off);
         ui.playButton->setIcon(icon);
