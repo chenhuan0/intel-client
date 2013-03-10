@@ -89,7 +89,7 @@ font: 12pt &quot;Sans Serif&quot;;</string>
       </property>
       <property name="icon">
        <iconset resource="resources.qrc">
-        <normaloff>:/images/control-play.png</normaloff>:/images/control-play.png</iconset>
+        <normaloff>:/images/control-pause.png</normaloff>:/images/control-pause.png</iconset>
       </property>
       <property name="iconSize">
        <size>
