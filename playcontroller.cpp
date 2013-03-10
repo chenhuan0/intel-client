@@ -75,6 +75,7 @@ void CPlayController::pause()
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/images/control-pause.png"), QSize(), QIcon::Normal, QIcon::Off);
         ui.playButton->setIcon(icon);
+        mplayer->write("get_time_pos\n");
     }
 }
 
