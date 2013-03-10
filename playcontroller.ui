@@ -188,7 +188,7 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QSlider" name="playProgress">
+     <widget class="CSlider" name="playProgress">
       <property name="value">
        <number>0</number>
       </property>
@@ -239,6 +239,13 @@ font: 12pt &quot;Sans Serif&quot;;</string>
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CSlider</class>
+   <extends>QSlider</extends>
+   <header>class.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resources.qrc"/>
  </resources>

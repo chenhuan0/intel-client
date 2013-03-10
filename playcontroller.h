@@ -17,6 +17,7 @@ private:
     Ui::playController ui;
     QProcess* mplayer;
     QString filename;
+    QWidget* parent;
 
     bool isPlaying;
     bool isMute;
@@ -25,14 +26,16 @@ private:
     float totalTime;
     float nowTime;
 
+
 private slots:
     void pause();
     void stop();
+    
     void forward() { mplayer->write("seek 5\n"); };
     void backward() { mplayer->write("seek -5\n"); };
     void mute();
-    void soundIncrease() { mplayer->write("volume +1\n"); };
-    void soundDecrease() { mplayer->write("volume -1\n"); };
+    void soundIncrease();
+    void soundDecrease();
 
     void message_slots();
 

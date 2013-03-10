@@ -9,6 +9,6 @@ public:
     CSlider(QWidget * parent = 0 );
 
 protected:
-    virtual void mouseReleaseEvent ( QMouseEvent * event ) ;
+    void mouseReleaseEvent ( QMouseEvent * event ) ;
 };
 #endif

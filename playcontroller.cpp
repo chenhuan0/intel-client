@@ -3,7 +3,7 @@
 
 CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
 {
-
+    this->parent = parent;
     ui.setupUi(this);
 
     flags |= Qt::FramelessWindowHint;
@@ -26,6 +26,8 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
     connect(ui.playProgress, SIGNAL(sliderMoved(int)), this, SLOT(dragging()));
     connect(ui.playProgress, SIGNAL(sliderReleased()), this, SLOT(endDrag()));
     connect(ui.playProgress, SIGNAL(valueChanged(int)), this, SLOT(refreshTime()));
+
+    
     setMouseTracking(true);
 }
 
@@ -50,6 +52,7 @@ void CPlayController::play()
     isPlaying = true;
     isMute = false;
     connect(mplayer, SIGNAL(readyReadStandardOutput()), this, SLOT(message_slots()));
+    connect(mplayer, SIGNAL(finished(int)), parent, SLOT(playstop()));
     mplayer->write("get_time_length\n");
     mplayer->write("get_time_pos\n");
     needGetPos = true;
@@ -105,6 +108,31 @@ void CPlayController::mute()
     }
 }
 
+void CPlayController::soundIncrease()
+{
+    if (isMute)
+    {
+        mplayer->write("mute 0\n");
+        isMute = false;
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/images/control-sound.png"), QSize(), QIcon::Normal, QIcon::Off);
+        ui.soundButton->setIcon(icon);
+    }
+    mplayer->write("volume +1\n");
+}
+
+void CPlayController::soundDecrease()
+{
+    if (isMute)
+    {
+        mplayer->write("mute 0\n");
+        isMute = false;
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/images/control-sound.png"), QSize(), QIcon::Normal, QIcon::Off);
+        ui.soundButton->setIcon(icon);
+    }
+    mplayer->write("volume -1\n");
+}
 void CPlayController::mouseMoveEvent(QMouseEvent* event)
 {
     QPoint mouse = event->pos();
@@ -170,11 +198,9 @@ void CPlayController::message_slots()
             if (needGetPos)
             {
                 mplayer->write("get_time_pos\n");
-            }
-            
+            }        
         }
     }
-
 }
 
 void CPlayController::dragging()
@@ -195,13 +221,10 @@ void CPlayController::startDrag()
 
 void CPlayController::endDrag()
 {
-    needGetPos = true;
-    int percent = ui.playProgress->value();
-    nowTime = totalTime * (percent / 100.0);
-
     QString cmd;
     cmd.sprintf("seek %f 2\n", nowTime);
     mplayer->write(QString2String(cmd).c_str());
+    needGetPos = true;
     mplayer->write("get_time_pos\n");
 }
 

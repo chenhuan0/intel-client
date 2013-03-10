@@ -6,7 +6,7 @@ CSlider::CSlider( QWidget * parent) :QSlider(parent)
  
 } 
 
-void CSlider::mouseReleaseEvent ( QMouseEvent* mouseEvent )
+void CSlider::mouseReleaseEvent ( QMouseEvent * event )
 {
-
+    QSlider::mouseReleaseEvent(event);
 }
