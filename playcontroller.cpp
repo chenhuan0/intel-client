@@ -196,12 +196,12 @@ void CPlayController::startDrag()
 void CPlayController::endDrag()
 {
     needGetPos = true;
-    mplayer->write("get_time_pos\n");
     int percent = ui.playProgress->value();
     nowTime = totalTime * (percent / 100.0);
 
     QString cmd;
     cmd.sprintf("seek %f 2\n", nowTime);
     mplayer->write(QString2String(cmd).c_str());
+    mplayer->write("get_time_pos\n");
 }
 
