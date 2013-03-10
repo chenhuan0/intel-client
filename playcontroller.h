@@ -18,6 +18,8 @@ private:
     bool isPlaying;
     bool isMute;
     void mouseMoveEvent(QMouseEvent* event);
+    float totalTime;
+    float nowTime;
 
 private slots:
     void pause();
@@ -29,5 +31,6 @@ private slots:
     void soundDecrease() { mplayer->write("volume -1\n"); };
 
     void message_slots();
+    void progress();
 };
 #endif 

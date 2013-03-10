@@ -21,6 +21,8 @@ CPlayController::CPlayController(QWidget* parent, Qt::WFlags flags)
     connect(ui.soundButton, SIGNAL(clicked()), this, SLOT(mute()));
     connect(ui.soundIncreaseButton, SIGNAL(clicked()), this, SLOT(soundIncrease()));
     connect(ui.soundDecreaseButton, SIGNAL(clicked()), this, SLOT(soundDecrease()));
+
+    //connect(ui.playProgress, SIGNAL(valueChanged(int)), this, SLOT(progress()));
     setMouseTracking(true);
 }
 
@@ -30,8 +32,8 @@ void CPlayController::play()
     QStringList args;
     args << "-slave";
     args << "-quiet";
-    args << "-vo";
-    args << "fbdev";
+    //args << "-vo";
+    //args << "fbdev";
     args << "-framedrop";
     args << "-zoom";
     args << "-x";
@@ -39,13 +41,14 @@ void CPlayController::play()
     args << "-y";
     args << "480";
     args << filename;
-    //mplayer->start("/usr/bin/mplayer", args);
-    mplayer->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
+    mplayer->start("/usr/bin/mplayer", args);
+    //mplayer->start("/mplayer/MPlayer-1.0rc2/mplayer", args);
     
     isPlaying = true;
     isMute = false;
     connect(mplayer, SIGNAL(readyReadStandardOutput()), this, SLOT(message_slots()));
     mplayer->write("get_time_length\n");
+    mplayer->write("get_time_pos\n");
 }
 
 
@@ -143,10 +146,26 @@ void CPlayController::message_slots()
             buffer.remove(0, 11);
             QTextCodec *codec = QTextCodec::codecForName("UTF-8");
             QString string = codec->toUnicode(buffer);
-            float totalTime =  string.toFloat();
+            totalTime =  string.toFloat();
             QString totalTimeStr = convertTime(totalTime);
             ui.totalTime->setText(totalTimeStr);
         }
+        if (buffer.startsWith("ANS_TIME_POSITION"))
+        {
+            buffer.remove(0, 18);
+            QTextCodec *codec = QTextCodec::codecForName("UTF-8");
+            QString string = codec->toUnicode(buffer);
+            nowTime = string.toFloat();
+            int percent = nowTime / totalTime * 100;
+            ui.playProgress->setValue(percent);
+            ui.nowTime->setText(convertTime(nowTime));
+            mplayer->write("get_time_pos\n");    
+        }
     }
 
+}
+
+void CPlayController::progress()
+{
+    //mplayer->write("get_percent_pos\n");
 }

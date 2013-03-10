@@ -188,7 +188,10 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QSlider" name="horizontalSlider">
+     <widget class="QSlider" name="playProgress">
+      <property name="value">
+       <number>0</number>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
