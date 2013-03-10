@@ -25,5 +25,7 @@ private slots:
     void forward() { mplayer->write("seek 5\n"); };
     void backward() { mplayer->write("seek -5\n"); };
     void mute();
+    void soundIncrease() { mplayer->write("volume +1\n"); };
+    void soundDecrease() { mplayer->write("volume -1\n"); };
 };
 #endif 
