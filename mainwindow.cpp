@@ -21,6 +21,7 @@ void CMainWindow::setup()
 
     connect(ui.playButton, SIGNAL(clicked()), this, SLOT(play()));
     connect(ui.browseButton, SIGNAL(clicked()), this, SLOT(browse()));
+    connect(ui.powerButton, SIGNAL(clicked()), this, SLOT(power()));
 }
 
 void CMainWindow::browse()
@@ -51,4 +52,9 @@ void CMainWindow::play()
     this->hide();
     classWindow = new CClassWindow(this);
     classWindow->show();
+}
+
+void CMainWindow::power()
+{
+    system("init 0");
 }

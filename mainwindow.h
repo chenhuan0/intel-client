@@ -23,5 +23,6 @@ public slots:
 private slots:
     void play();
     void browse();
+    void power();
 };
 #endif 

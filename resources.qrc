@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="/">
+    <file>images/power.jpg</file>
+    <file>images/power.png</file>
     <file>images/control-end.png</file>
     <file>images/control-sound-decrese.png</file>
     <file>images/control-sound-increase.png</file>
