@@ -124,7 +124,7 @@ void CConfig::getVideos()
 
     if (CConfig::isPlay)
     {
-        QString addin = String2QString(" and filename in ('");
+        QString addin = String2QString(" and id in ('");
         QStringList tmpList;
         foreach(QString tmp, CConfig::haveFile)
         {

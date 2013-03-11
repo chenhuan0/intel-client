@@ -78,19 +78,19 @@ void CVideoWindow::showVideos()
     foreach(QStringList line, CConfig::result[CConfig::PAGE])
     {
 
-        videoButtonlist[count]->setWhatsThis(line[2]);
+        videoButtonlist[count]->setWhatsThis(line[0]);
         videoButtonlist[count]->setText(line[1]);
         videoButtonlist[count]->setVisible(true);
         videoButtonlist[count]->setIcon(QIcon(String2QString(ROOT_PATH + "previews/") + line[3]));
         if (!CConfig::isPlay)
         {
             QString now = videoButtonlist[count]->text();
-            if (CConfig::interestFile.contains(line[2]))
+            if (CConfig::interestFile.contains(line[0]))
             {
                 videoButtonlist[count]->setText(now + String2QString("\n感兴趣"));
             }
             now = videoButtonlist[count]->text();
-            if (CConfig::haveFile.contains(line[2]))
+            if (CConfig::haveFile.contains(line[0]))
             {
                 videoButtonlist[count]->setText(now + String2QString("\n本机有此视频"));
             }
@@ -109,9 +109,16 @@ void CVideoWindow::showVideos()
 void CVideoWindow::play()
 {
     QToolButton* subclass = (QToolButton*)(sender());
+    QString contentID = subclass->whatsThis();
+    QString sql = String2QString("select filename from contents where id = ") + contentID;
+    if (CSQL::query(String2QString(ROOT_PATH + INDEX_DB_NAME), sql) == ERROR)
+    {
+        qDebug() << "Cannot connecct database";
+    }
+    QString filename =CSQL::result[0][0];
     playController = new CPlayController(this);
     playController->show();
-    playController->setFilename(String2QString(ROOT_PATH + "videos/") + subclass->whatsThis());
+    playController->setFilename(String2QString(ROOT_PATH + "videos/") + filename);
     playController->play();
     this->hide();
 }
