@@ -14,6 +14,7 @@ QString CConfig::subClassID;
 QString CConfig::mainClassID;
 
 QSet<QString> CConfig::interestFile;
+QSet<QString> CConfig::wantDelFile;
 QSet<QString> CConfig::haveFile;
 QSet<QString> CConfig::haveMainClass;
 QSet<QString> CConfig::haveSubClass;

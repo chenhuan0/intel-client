@@ -164,4 +164,13 @@ void CClassWindow::backFromContent()
         interest << QString2String(each) << endl;
     }
     interest.close();
+
+    ofstream del((ROOT_PATH + DEL_FILE).c_str());
+    foreach (QString each, CConfig::wantDelFile)
+    {
+        del << QString2String(each) << endl;
+    }
+    del.close();
+
+    system("sync");
 }

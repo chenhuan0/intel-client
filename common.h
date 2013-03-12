@@ -12,6 +12,7 @@ using namespace std;
 const string ROOT_PATH = "/home/intel/";
 const string INDEX_DB_NAME = "db/indexdb";
 const string INTEREST_FILE = "config/interest";
+const string DEL_FILE = "config/todel";
 const string HAVE_FILE = "config/indevice";
 
 typedef int BOOL;

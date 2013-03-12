@@ -139,11 +139,13 @@ void CVideoWindow::choose()
     if (CConfig::interestFile.contains(contentID))
     {
         CConfig::interestFile.remove(contentID);
+        CConfig::wantDelFile.insert(contentID);
         subclass->setText(name);
     }
     else
     {
         CConfig::interestFile.insert(contentID);
+        CConfig::wantDelFile.remove(contentID);
         subclass->setText(name + String2QString("\n感兴趣"));
     }
     if (CConfig::haveFile.contains(contentID))
