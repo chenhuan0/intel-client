@@ -22,11 +22,7 @@ CClassWindow::CClassWindow(QWidget* parent, Qt::WFlags flags)
     classButtonlist.append(ui.class7);
     classButtonlist.append(ui.class8);
     classButtonlist.append(ui.class9);
-    classButtonlist.append(ui.class10);
-    classButtonlist.append(ui.class11);
-    classButtonlist.append(ui.class12);
 
-    
     connect(ui.nextButton, SIGNAL(clicked()), this, SLOT(addPages()));
     connect(ui.nextButton, SIGNAL(clicked()), this, SLOT(showClasses()));
     connect(ui.previousButton, SIGNAL(clicked()), this, SLOT(subPages()));
@@ -96,7 +92,14 @@ void  CClassWindow::showClasses()
     foreach(QStringList line, CConfig::result[CConfig::PAGE])
     {
         classButtonlist[count]->setWhatsThis(line[0]);
-        classButtonlist[count]->setText(line[1]);
+        if (CConfig::NOW_PAGE == MAINCLASS)
+        {
+            classButtonlist[count]->setText(line[1] + line[2]);
+        }
+        else if (CConfig::NOW_PAGE == SUBCLASS)
+        {
+            classButtonlist[count]->setText(line[1] + line[3]);
+        }
         classButtonlist[count]->setVisible(true);
         count++;
     }  

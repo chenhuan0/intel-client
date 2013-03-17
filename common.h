@@ -25,6 +25,9 @@ const int SUBCLASS = 2;
 const int CONTENT = 3;
 const int NO = 4;
 
+const int CLASS_MAXDISPLAY = 9;
+const int VIDEO_MAXDISPLAY = 6;
+
 static string QString2String(const QString& s)
 {
     return string((const char*)s.toLocal8Bit());

@@ -1,6 +1,7 @@
 #ifndef _CONFIG_H_
 #define _CONFIG_H_
 #include "common.h"
+class CVideo;
 
 class CConfig : public QObject
 {

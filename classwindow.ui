@@ -114,19 +114,6 @@
          <property name="spacing">
           <number>10</number>
          </property>
-         <item row="1" column="3">
-          <widget class="QToolButton" name="class8">
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 170, 255);</string>
-           </property>
-           <property name="text">
-            <string>NULL</string>
-           </property>
-           <property name="autoRaise">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
          <item row="0" column="0">
           <widget class="QToolButton" name="class1">
            <property name="styleSheet">
@@ -166,73 +153,8 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="2">
-          <widget class="QToolButton" name="class7">
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 170, 255);</string>
-           </property>
-           <property name="text">
-            <string>NULL</string>
-           </property>
-           <property name="autoRaise">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QToolButton" name="class5">
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 170, 255);</string>
-           </property>
-           <property name="text">
-            <string>NULL</string>
-           </property>
-           <property name="autoRaise">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QToolButton" name="class6">
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 170, 255);</string>
-           </property>
-           <property name="text">
-            <string>NULL</string>
-           </property>
-           <property name="autoRaise">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QToolButton" name="class4">
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 170, 255);</string>
-           </property>
-           <property name="text">
-            <string>NULL</string>
-           </property>
-           <property name="autoRaise">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QToolButton" name="class9">
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 170, 255);</string>
-           </property>
-           <property name="text">
-            <string>NULL</string>
-           </property>
-           <property name="autoRaise">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="1">
-          <widget class="QToolButton" name="class10">
+          <widget class="QToolButton" name="class8">
            <property name="styleSheet">
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
@@ -245,7 +167,7 @@
           </widget>
          </item>
          <item row="2" column="2">
-          <widget class="QToolButton" name="class11">
+          <widget class="QToolButton" name="class9">
            <property name="styleSheet">
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>
@@ -257,8 +179,47 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="3">
-          <widget class="QToolButton" name="class12">
+         <item row="2" column="0">
+          <widget class="QToolButton" name="class7">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 170, 255);</string>
+           </property>
+           <property name="text">
+            <string>NULL</string>
+           </property>
+           <property name="autoRaise">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QToolButton" name="class6">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 170, 255);</string>
+           </property>
+           <property name="text">
+            <string>NULL</string>
+           </property>
+           <property name="autoRaise">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QToolButton" name="class5">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 170, 255);</string>
+           </property>
+           <property name="text">
+            <string>NULL</string>
+           </property>
+           <property name="autoRaise">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QToolButton" name="class4">
            <property name="styleSheet">
             <string notr="true">color: rgb(255, 170, 255);</string>
            </property>

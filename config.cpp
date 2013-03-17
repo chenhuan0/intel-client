@@ -1,6 +1,7 @@
 #include "common.h"
 #include "config.h"
 #include "sql.h"
+#include "class.h"
 
 int CConfig::NEXT_PAGE;
 int CConfig::PREVIOUS_PAGE;
@@ -44,19 +45,48 @@ void CConfig::getMainClasses()
     {
         qDebug() << "Cannot connecct database";
     }
-    if (CSQL::result.size() <= 12)
+    for (int i = 0; i < CSQL::result.size(); i++)
+    {
+        QStringList everyone = CSQL::result[i];
+        QString id = everyone[0];
+        int number = 0;
+        sql = String2QString("select * from subclasses where mainclass = ");
+        sql += id;
+        if (CSQL::count(String2QString(ROOT_PATH + INDEX_DB_NAME), sql) == ERROR)
+        {
+            qDebug() << "Cannot connecct database";
+        }
+        foreach(QStringList each, CSQL::secondResult)
+        {
+            if (CConfig::isPlay)
+            {
+                if (CConfig::haveSubClass.contains(each[0]))
+                {
+                    number++;
+                }
+            }
+            else
+            {
+                number++;
+            }
+        }
+        QString numStr;
+        numStr.sprintf("(%d)", number);
+        CSQL::result[i].append(numStr);
+    }
+    if (CSQL::result.size() <= CLASS_MAXDISPLAY)
     {       
         result.append(CSQL::result);
     } 
     else
     {
         int count = 0;
-
         foreach(QStringList everyone, CSQL::result)
         {
+
             count++;
             tmp.append(everyone);
-            if (count == 12)
+            if (count == CLASS_MAXDISPLAY)
             {
                 result.append(tmp);
                 tmp.clear();
@@ -93,7 +123,38 @@ void CConfig::getSubClasses()
     {
         qDebug() << "Cannot connecct database";
     }
-    if (CSQL::result.size() <= 12)
+
+    for (int i = 0; i < CSQL::result.size(); i++)
+    {
+        QStringList everyone = CSQL::result[i];
+        QString id = everyone[0];
+        int number = 0;
+        sql = String2QString("select * from contents where subclass = ");
+        sql += id;
+        if (CSQL::count(String2QString(ROOT_PATH + INDEX_DB_NAME), sql) == ERROR)
+        {
+            qDebug() << "Cannot connecct database";
+        }
+        foreach(QStringList each, CSQL::secondResult)
+        {
+            if (CConfig::isPlay)
+            {
+                if (CConfig::haveFile.contains(each[0]))
+                {
+                    number++;
+                }
+            }
+            else
+            {
+                number++;
+            }
+        }
+        QString numStr;
+        numStr.sprintf("(%d)", number);
+        CSQL::result[i].append(numStr);
+    }
+
+    if (CSQL::result.size() <= CLASS_MAXDISPLAY)
     {       
         result.append(CSQL::result);
     } 
@@ -104,7 +165,7 @@ void CConfig::getSubClasses()
         {
             count++;
             tmp.append(everyone);
-            if (count == 12)
+            if (count == CLASS_MAXDISPLAY)
             {
                 result.append(tmp);
                 tmp.clear();
@@ -144,7 +205,7 @@ void CConfig::getVideos()
     {
         qDebug() << "Cannot connecct database";
     }
-    if (CSQL::result.size() <= 6)
+    if (CSQL::result.size() <= VIDEO_MAXDISPLAY)
     {       
         result.append(CSQL::result);
     } 
@@ -155,7 +216,7 @@ void CConfig::getVideos()
         {
             count++;
             tmp.append(everyone);
-            if (count == 6)
+            if (count == VIDEO_MAXDISPLAY)
             {
                 result.append(tmp);
                 tmp.clear();

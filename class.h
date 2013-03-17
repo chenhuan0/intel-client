@@ -26,4 +26,12 @@ public:
     }
 };
 
+class CVideo
+{
+public:
+    QString mainClass;
+    QString subClass;
+    QString id;
+    CVideo(QString main, QString sub, QString content) { mainClass = main; subClass = sub; id = content;};
+};
 #endif

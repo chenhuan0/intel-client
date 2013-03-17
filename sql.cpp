@@ -3,6 +3,7 @@
 
 QString CSQL::lastError;
 QList<QStringList> CSQL::result;
+QList<QStringList> CSQL::secondResult;
 QSqlDatabase CSQL::db = QSqlDatabase::addDatabase("QSQLITE"); 
 BOOL CSQL::query(QString dbname, QString sql)
 {
@@ -26,6 +27,39 @@ BOOL CSQL::query(QString dbname, QString sql)
 				tmp << query.value(i).toString();
 			}
 			result << tmp;
+		}
+	}
+	else
+	{
+		lastError = tr("Failed to query database.");
+		return ERROR;
+	}
+	db.close();
+	return SUCCESS;
+}
+
+BOOL CSQL::count(QString dbname, QString sql)
+{
+	secondResult.clear();
+	db.setDatabaseName(dbname); 
+	if (!db.open())
+	{
+		lastError = tr("Failed to open database.");
+		return ERROR;
+	}
+	QSqlQuery query;
+	if (query.exec(sql))
+	{
+		int columns = query.record().count();
+		while (query.next())
+		{
+			QStringList tmp;
+			int i;
+			for (i = 0; i < columns; i++)
+			{
+				tmp << query.value(i).toString();
+			}
+			secondResult << tmp;
 		}
 	}
 	else
