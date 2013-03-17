@@ -67,13 +67,13 @@ CVideoWindow::CVideoWindow(QWidget* parent, Qt::WFlags flags)
     }
     foreach (QLabel* label, interestLabelList)
     {
-        QFont font("Microsoft YaHei", 14);
+        QFont font("Microsoft YaHei", 16);
         font.setBold(true);
         label->setFont(font);
     }
     foreach (QLabel* label, haveLabelList)
     {
-        QFont font("Microsoft YaHei", 14);
+        QFont font("Microsoft YaHei", 16);
         font.setBold(true);
         label->setFont(font);
     }
