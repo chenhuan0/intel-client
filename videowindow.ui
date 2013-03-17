@@ -35,8 +35,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>20</width>
-         <height>40</height>
+         <width>17</width>
+         <height>13</height>
         </size>
        </property>
       </spacer>
@@ -88,8 +88,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>20</width>
-         <height>40</height>
+         <width>17</width>
+         <height>13</height>
         </size>
        </property>
       </spacer>
@@ -111,6 +111,65 @@
        </item>
        <item>
         <layout class="QGridLayout" name="gridLayout">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item row="0" column="0">
+          <layout class="QVBoxLayout" name="verticalLayout_1">
+           <item>
+            <widget class="QToolButton" name="video_1">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>NULL</string>
+             </property>
+             <property name="icon">
+              <iconset resource="resources.qrc">
+               <normaloff>:/images/nopreview.png</normaloff>:/images/nopreview.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>150</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="toolButtonStyle">
+              <enum>Qt::ToolButtonTextUnderIcon</enum>
+             </property>
+             <property name="autoRaise">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="interest_1">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 0);</string>
+             </property>
+             <property name="text">
+              <string>NULL</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="have_1">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>NULL</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
          <item row="0" column="1">
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
@@ -142,7 +201,7 @@
            <item>
             <widget class="QLabel" name="interest_2">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -198,7 +257,7 @@
            <item>
             <widget class="QLabel" name="interest_3">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -223,10 +282,10 @@
            </item>
           </layout>
          </item>
-         <item row="0" column="0">
-          <layout class="QVBoxLayout" name="verticalLayout">
+         <item row="1" column="2">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
-            <widget class="QToolButton" name="video_1">
+            <widget class="QToolButton" name="video_6">
              <property name="styleSheet">
               <string notr="true">color: rgb(255, 255, 255);</string>
              </property>
@@ -252,9 +311,9 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="interest_1">
+            <widget class="QLabel" name="interest_6">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -265,7 +324,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="have_1">
+            <widget class="QLabel" name="have_6">
              <property name="styleSheet">
               <string notr="true">color: rgb(255, 255, 255);</string>
              </property>
@@ -310,7 +369,7 @@
            <item>
             <widget class="QLabel" name="interest_4">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -366,7 +425,7 @@
            <item>
             <widget class="QLabel" name="interest_5">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -378,62 +437,6 @@
            </item>
            <item>
             <widget class="QLabel" name="have_5">
-             <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
-             </property>
-             <property name="text">
-              <string>NULL</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item row="1" column="2">
-          <layout class="QVBoxLayout" name="verticalLayout_6">
-           <item>
-            <widget class="QToolButton" name="video_6">
-             <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
-             </property>
-             <property name="text">
-              <string>NULL</string>
-             </property>
-             <property name="icon">
-              <iconset resource="resources.qrc">
-               <normaloff>:/images/nopreview.png</normaloff>:/images/nopreview.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>150</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="toolButtonStyle">
-              <enum>Qt::ToolButtonTextUnderIcon</enum>
-             </property>
-             <property name="autoRaise">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="interest_6">
-             <property name="styleSheet">
-              <string notr="true">color: rgb(255, 255, 255);</string>
-             </property>
-             <property name="text">
-              <string>NULL</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="have_6">
              <property name="styleSheet">
               <string notr="true">color: rgb(255, 255, 255);</string>
              </property>
@@ -471,8 +474,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>20</width>
-         <height>40</height>
+         <width>17</width>
+         <height>13</height>
         </size>
        </property>
       </spacer>
@@ -600,8 +603,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>20</width>
-         <height>40</height>
+         <width>17</width>
+         <height>13</height>
         </size>
        </property>
       </spacer>

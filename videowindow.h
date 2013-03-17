@@ -18,6 +18,7 @@ public:
     QList<QToolButton*> videoButtonlist;
     QList<QLabel*> interestLabelList;
     QList<QLabel*> haveLabelList;
+    QList<QVBoxLayout*> videoLayoutList;
 
 public slots:
     void playstop();

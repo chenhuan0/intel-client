@@ -35,6 +35,13 @@ CVideoWindow::CVideoWindow(QWidget* parent, Qt::WFlags flags)
     haveLabelList.append(ui.have_5);
     haveLabelList.append(ui.have_6);
 
+    videoLayoutList.append(ui.verticalLayout_1);
+    videoLayoutList.append(ui.verticalLayout_2);
+    videoLayoutList.append(ui.verticalLayout_3);
+    videoLayoutList.append(ui.verticalLayout_4);
+    videoLayoutList.append(ui.verticalLayout_5);
+    videoLayoutList.append(ui.verticalLayout_6);
+
     connect(ui.nextButton, SIGNAL(clicked()), this, SLOT(addPages()));
     connect(ui.nextButton, SIGNAL(clicked()), this, SLOT(showVideos()));
     connect(ui.previousButton, SIGNAL(clicked()), this, SLOT(subPages()));
@@ -60,13 +67,13 @@ CVideoWindow::CVideoWindow(QWidget* parent, Qt::WFlags flags)
     }
     foreach (QLabel* label, interestLabelList)
     {
-        QFont font("Microsoft YaHei", 18);
+        QFont font("Microsoft YaHei", 14);
         font.setBold(true);
         label->setFont(font);
     }
     foreach (QLabel* label, haveLabelList)
     {
-        QFont font("Microsoft YaHei", 18);
+        QFont font("Microsoft YaHei", 14);
         font.setBold(true);
         label->setFont(font);
     }
@@ -103,11 +110,11 @@ void CVideoWindow::showVideos()
     }
     foreach(QLabel* label, interestLabelList)
     {
-        label->setText("NULL");
+        label->setText("");
     }
     foreach(QLabel* label, haveLabelList)
     {
-        label->setText("NULL");
+        label->setText("");
     }
     foreach(QStringList line, CConfig::result[CConfig::PAGE])
     {
@@ -129,25 +136,28 @@ void CVideoWindow::showVideos()
         }
         count++;
     }  
-    foreach(QToolButton* button, videoButtonlist)
+
+    if (CConfig::isPlay)
     {
-        if (button->text() == "NULL")
+        foreach(QLabel* label, interestLabelList)
         {
-            button->setVisible(false);
+            label->setVisible(false);
         }
-    }
-    foreach(QLabel* label, interestLabelList)
-    {
-        if (label->text() == "NULL")
+        foreach(QLabel* label, haveLabelList)
         {
             label->setVisible(false);
         }
     }
-    foreach(QLabel* label, haveLabelList)
+    else
     {
-        if (label->text() == "NULL")
+        for (int i = 0; i < videoButtonlist.size(); i++)
         {
-            label->setVisible(false);
+            if (videoButtonlist[i]->text() == "NULL")
+            {
+                videoButtonlist[i]->setVisible(false);
+                interestLabelList[i]->setVisible(false);
+                haveLabelList[i]->setVisible(false);
+            }
         }
     }
 }
@@ -188,14 +198,12 @@ void CVideoWindow::choose()
         CConfig::interestFile.remove(contentID);
         CConfig::wantDelFile.insert(contentID);
         subclass->setText(name);
-        interestLabelList[index]->setText("NULL");
-        interestLabelList[index]->setVisible(false);
+        interestLabelList[index]->setText("");
     }
     else
     {
         CConfig::interestFile.insert(contentID);
         CConfig::wantDelFile.remove(contentID);
         interestLabelList[index]->setText("感兴趣");
-        interestLabelList[index]->setVisible(true);
     }
 }
