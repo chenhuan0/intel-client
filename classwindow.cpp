@@ -40,7 +40,7 @@ void  CClassWindow::showClasses()
     QToolButton* everyone;
     foreach (everyone, classButtonlist)
     {
-        QFont font("KaiTi", 28);
+        QFont font("Microsoft YaHei", 28);
         font.setBold(true);
         everyone->setFont(font);
     }
