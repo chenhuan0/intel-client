@@ -161,7 +161,7 @@
            <item>
             <widget class="QLabel" name="have_1">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 0, 0);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -217,7 +217,7 @@
            <item>
             <widget class="QLabel" name="have_2">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 0, 0);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -273,7 +273,7 @@
            <item>
             <widget class="QLabel" name="have_3">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 0, 0);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -329,7 +329,7 @@
            <item>
             <widget class="QLabel" name="have_6">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 0, 0);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -385,7 +385,7 @@
            <item>
             <widget class="QLabel" name="have_4">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 0, 0);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
@@ -441,7 +441,7 @@
            <item>
             <widget class="QLabel" name="have_5">
              <property name="styleSheet">
-              <string notr="true">color: rgb(255, 0, 0);</string>
+              <string notr="true">color: rgb(255, 255, 0);</string>
              </property>
              <property name="text">
               <string>NULL</string>
