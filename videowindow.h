@@ -16,6 +16,8 @@ private:
 public:
     CVideoWindow(QWidget* parent = 0, Qt::WFlags flags = 0);
     QList<QToolButton*> videoButtonlist;
+    QList<QLabel*> interestLabelList;
+    QList<QLabel*> haveLabelList;
 
 public slots:
     void playstop();

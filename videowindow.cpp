@@ -14,12 +14,26 @@ CVideoWindow::CVideoWindow(QWidget* parent, Qt::WFlags flags)
     setPalette(plt);
     setGeometry(0, 0, 720, 576);
 
-    videoButtonlist.append(ui.video1);
-    videoButtonlist.append(ui.video2);
-    videoButtonlist.append(ui.video3);
-    videoButtonlist.append(ui.video4);
-    videoButtonlist.append(ui.video5);
-    videoButtonlist.append(ui.video6);
+    videoButtonlist.append(ui.video_1);
+    videoButtonlist.append(ui.video_2);
+    videoButtonlist.append(ui.video_3);
+    videoButtonlist.append(ui.video_4);
+    videoButtonlist.append(ui.video_5);
+    videoButtonlist.append(ui.video_6);
+
+    interestLabelList.append(ui.interest_1);
+    interestLabelList.append(ui.interest_2);
+    interestLabelList.append(ui.interest_3);
+    interestLabelList.append(ui.interest_4);
+    interestLabelList.append(ui.interest_5);
+    interestLabelList.append(ui.interest_6);
+
+    haveLabelList.append(ui.have_1);
+    haveLabelList.append(ui.have_2);
+    haveLabelList.append(ui.have_3);
+    haveLabelList.append(ui.have_4);
+    haveLabelList.append(ui.have_5);
+    haveLabelList.append(ui.have_6);
 
     connect(ui.nextButton, SIGNAL(clicked()), this, SLOT(addPages()));
     connect(ui.nextButton, SIGNAL(clicked()), this, SLOT(showVideos()));
@@ -43,6 +57,18 @@ CVideoWindow::CVideoWindow(QWidget* parent, Qt::WFlags flags)
             connect(everyone, SIGNAL(clicked()), this, SLOT(choose()));
         }
         
+    }
+    foreach (QLabel* label, interestLabelList)
+    {
+        QFont font("Microsoft YaHei", 18);
+        font.setBold(true);
+        label->setFont(font);
+    }
+    foreach (QLabel* label, haveLabelList)
+    {
+        QFont font("Microsoft YaHei", 18);
+        font.setBold(true);
+        label->setFont(font);
     }
 }
 
@@ -75,6 +101,14 @@ void CVideoWindow::showVideos()
         button->setText("NULL");
         button->setWhatsThis("");
     }
+    foreach(QLabel* label, interestLabelList)
+    {
+        label->setText("NULL");
+    }
+    foreach(QLabel* label, haveLabelList)
+    {
+        label->setText("NULL");
+    }
     foreach(QStringList line, CConfig::result[CConfig::PAGE])
     {
 
@@ -84,15 +118,13 @@ void CVideoWindow::showVideos()
         videoButtonlist[count]->setIcon(QIcon(String2QString(ROOT_PATH + "previews/") + line[3]));
         if (!CConfig::isPlay)
         {
-            QString now = videoButtonlist[count]->text();
             if (CConfig::interestFile.contains(line[0]))
             {
-                videoButtonlist[count]->setText(now + String2QString("\n感兴趣"));
+                interestLabelList[count]->setText("感兴趣");
             }
-            now = videoButtonlist[count]->text();
             if (CConfig::haveFile.contains(line[0]))
             {
-                videoButtonlist[count]->setText(now + String2QString("\n本机有此视频"));
+                haveLabelList[count]->setText("本机有此视频");
             }
         }
         count++;
@@ -102,6 +134,20 @@ void CVideoWindow::showVideos()
         if (button->text() == "NULL")
         {
             button->setVisible(false);
+        }
+    }
+    foreach(QLabel* label, interestLabelList)
+    {
+        if (label->text() == "NULL")
+        {
+            label->setVisible(false);
+        }
+    }
+    foreach(QLabel* label, haveLabelList)
+    {
+        if (label->text() == "NULL")
+        {
+            label->setVisible(false);
         }
     }
 }
@@ -136,21 +182,20 @@ void CVideoWindow::choose()
     QString subClassID = CConfig::subClassID;
     QString contentID = subclass->whatsThis();
     QString name = subclass->text().split("\n")[0];
+    int index = subclass->objectName().split("_")[1].toInt() - 1;
     if (CConfig::interestFile.contains(contentID))
     {
         CConfig::interestFile.remove(contentID);
         CConfig::wantDelFile.insert(contentID);
         subclass->setText(name);
+        interestLabelList[index]->setText("NULL");
+        interestLabelList[index]->setVisible(false);
     }
     else
     {
         CConfig::interestFile.insert(contentID);
         CConfig::wantDelFile.remove(contentID);
-        subclass->setText(name + String2QString("\n感兴趣"));
-    }
-    if (CConfig::haveFile.contains(contentID))
-    {
-        QString now = subclass->text();
-        subclass->setText(now + String2QString("\n本机有此视频"));
+        interestLabelList[index]->setText("感兴趣");
+        interestLabelList[index]->setVisible(true);
     }
 }
