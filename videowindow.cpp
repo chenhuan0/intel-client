@@ -31,7 +31,7 @@ CVideoWindow::CVideoWindow(QWidget* parent, Qt::WFlags flags)
     connect(ui.backButton, SIGNAL(clicked()), parent, SLOT(backFromContent()));
     foreach (QToolButton* everyone, videoButtonlist)
     {
-        QFont font("KaiTi", 14);
+        QFont font("Microsoft YaHei", 14);
         font.setBold(true);
         everyone->setFont(font);
         if (CConfig::isPlay)
