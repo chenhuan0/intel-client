@@ -139,6 +139,13 @@ void CVideoWindow::showVideos()
 
     if (CConfig::isPlay)
     {
+        foreach(QToolButton* button, videoButtonlist)
+        {
+            if (button->text() == "NULL")
+            {
+                button->setVisible(false);
+            }
+        }
         foreach(QLabel* label, interestLabelList)
         {
             label->setVisible(false);
