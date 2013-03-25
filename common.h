@@ -14,7 +14,7 @@ const string INDEX_DB_NAME = "db/indexdb";
 const string INTEREST_FILE = "config/interest";
 const string DEL_FILE = "config/todel";
 const string HAVE_FILE = "config/indevice";
-const string MPLAYER_PATH = ROOT_PATH + "mplayer/mplayer"
+const string MPLAYER_PATH = ROOT_PATH + "mplayer/mplayer";
 
 typedef int BOOL;
 const int SUCCESS = 1;
