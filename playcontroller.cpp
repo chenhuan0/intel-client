@@ -47,7 +47,7 @@ void CPlayController::play()
     args << "-y";
     args << "480";
     args << filename;
-    mplayer->start(MPLAYER_PATH, args);
+    mplayer->start(String2QString(MPLAYER_PATH), args);
     
     isPlaying = true;
     isMute = false;
