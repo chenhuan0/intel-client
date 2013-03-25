@@ -83,7 +83,6 @@ void CConfig::getMainClasses()
         int count = 0;
         foreach(QStringList everyone, CSQL::result)
         {
-
             count++;
             tmp.append(everyone);
             if (count == CLASS_MAXDISPLAY)
@@ -94,7 +93,10 @@ void CConfig::getMainClasses()
             }
         }
     }
-    result.append(tmp);
+    if (!tmp.empty())
+    {
+        result.append(tmp);
+    }
 }
 
 void CConfig::getSubClasses()
