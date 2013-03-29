@@ -9,7 +9,7 @@
 #include <fstream>
 using namespace std;
 
-const string ROOT_PATH = "/home/intel/";
+const string ROOT_PATH = "/media/mmcblk0p2/home/intel/";
 const string INDEX_DB_NAME = "db/indexdb";
 const string INTEREST_FILE = "config/interest";
 const string DEL_FILE = "config/todel";
